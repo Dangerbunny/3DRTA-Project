@@ -2,16 +2,15 @@
 using System.Collections;
 
 public class CameraController : MonoBehaviour {
-
-	public Transform[] views;
-	public float[] transitionDurations;
-
+	
 	public Transform startMarker;
 	public Transform endMarker;
 	public float speed = 1.0F;
+	public float smooth = 5.0F;
 	private float startTime;
 	private float journeyLength;
-	public float smooth = 5.0F;
+
+
 	void Start() {
 		startTime = Time.time;
 		startMarker = transform;

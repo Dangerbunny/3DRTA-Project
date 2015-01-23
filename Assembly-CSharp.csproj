@@ -48,9 +48,13 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\AutoFade.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Scripts\DogController.cs" />
      <Compile Include="Assets\Scripts\HideMouse.cs" />
+     <Compile Include="Assets\Scripts\LumberjackController.cs" />
+     <Compile Include="Assets\Scripts\PositionLerper.cs" />
      <Compile Include="Assets\Scripts\SceneTransition.cs" />
      <Compile Include="Assets\Scripts\TorchController.cs" />
+     <Compile Include="Assets\Scripts\WolfController.cs" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
  <Reference Include="UnityEngine.UI">
