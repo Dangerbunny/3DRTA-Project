@@ -1,0 +1,239 @@
+fileFormatVersion: 2
+guid: 9780a4432e368a742b214f35f1d8cb63
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: 2nd part
+    100002: Back Light
+    100004: Base
+    100006: BC01
+    100008: BC02
+    100010: BC03
+    100012: Bottom
+    100014: 'Burner '
+    100016: Camera 01
+    100018: Camera 01.Target
+    100020: Circum Cir
+    100022: Fill Light
+    100024: Fill Light.Target
+    100026: Fuel Lid
+    100028: Gas Control Guage
+    100030: Gas Control Handle
+    100032: Glass
+    100034: Glass Base
+    100036: Glass Top
+    100038: Handle 01
+    100040: Handle 02
+    100042: Handle Cross
+    100044: Handle Hole 01
+    100046: Handle Hole 02
+    100048: Handle Line
+    100050: Handle Travel Line
+    100052: Key Light
+    100054: Key Light.Target
+    100056: Knob Shaft
+    100058: Knob Sides
+    100060: //RootNode
+    100062: Lamp Handle
+    100064: Leg 01
+    100066: Leg 02
+    100068: Leg 03
+    100070: Leg 04
+    100072: Mid Hood
+    100074: Ring 01
+    100076: Ring 02
+    100078: Spinner
+    100080: Tank
+    100082: Tank Rim
+    100084: Top of Fuel Tank
+    100086: Top Part
+    100088: Top Tube 01
+    100090: Vent Hood
+    400000: 2nd part
+    400002: Back Light
+    400004: Base
+    400006: BC01
+    400008: BC02
+    400010: BC03
+    400012: Bottom
+    400014: 'Burner '
+    400016: Camera 01
+    400018: Camera 01.Target
+    400020: Circum Cir
+    400022: Fill Light
+    400024: Fill Light.Target
+    400026: Fuel Lid
+    400028: Gas Control Guage
+    400030: Gas Control Handle
+    400032: Glass
+    400034: Glass Base
+    400036: Glass Top
+    400038: Handle 01
+    400040: Handle 02
+    400042: Handle Cross
+    400044: Handle Hole 01
+    400046: Handle Hole 02
+    400048: Handle Line
+    400050: Handle Travel Line
+    400052: Key Light
+    400054: Key Light.Target
+    400056: Knob Shaft
+    400058: Knob Sides
+    400060: //RootNode
+    400062: Lamp Handle
+    400064: Leg 01
+    400066: Leg 02
+    400068: Leg 03
+    400070: Leg 04
+    400072: Mid Hood
+    400074: Ring 01
+    400076: Ring 02
+    400078: Spinner
+    400080: Tank
+    400082: Tank Rim
+    400084: Top of Fuel Tank
+    400086: Top Part
+    400088: Top Tube 01
+    400090: Vent Hood
+    2300000: 2nd part
+    2300002: Base
+    2300004: Bottom
+    2300006: 'Burner '
+    2300008: Gas Control Guage
+    2300010: Glass
+    2300012: Glass Base
+    2300014: Glass Top
+    2300016: Handle 01
+    2300018: Handle 02
+    2300020: Handle Hole 01
+    2300022: Handle Hole 02
+    2300024: Knob Shaft
+    2300026: Knob Sides
+    2300028: Lamp Handle
+    2300030: Leg 01
+    2300032: Leg 02
+    2300034: Leg 03
+    2300036: Leg 04
+    2300038: Mid Hood
+    2300040: Ring 01
+    2300042: Ring 02
+    2300044: Spinner
+    2300046: Tank
+    2300048: Tank Rim
+    2300050: Top of Fuel Tank
+    2300052: Top Part
+    2300054: Top Tube 01
+    2300056: Vent Hood
+    3300000: 2nd part
+    3300002: Base
+    3300004: Bottom
+    3300006: 'Burner '
+    3300008: Gas Control Guage
+    3300010: Glass
+    3300012: Glass Base
+    3300014: Glass Top
+    3300016: Handle 01
+    3300018: Handle 02
+    3300020: Handle Hole 01
+    3300022: Handle Hole 02
+    3300024: Knob Shaft
+    3300026: Knob Sides
+    3300028: Lamp Handle
+    3300030: Leg 01
+    3300032: Leg 02
+    3300034: Leg 03
+    3300036: Leg 04
+    3300038: Mid Hood
+    3300040: Ring 01
+    3300042: Ring 02
+    3300044: Spinner
+    3300046: Tank
+    3300048: Tank Rim
+    3300050: Top of Fuel Tank
+    3300052: Top Part
+    3300054: Top Tube 01
+    3300056: Vent Hood
+    4300000: Base
+    4300002: Tank
+    4300004: Top of Fuel Tank
+    4300006: 2nd part
+    4300008: 'Burner '
+    4300010: Gas Control Guage
+    4300012: Glass Base
+    4300014: Ring 01
+    4300016: Ring 02
+    4300018: Glass Top
+    4300020: Top Tube 01
+    4300022: Mid Hood
+    4300024: Vent Hood
+    4300026: Top Part
+    4300028: Leg 01
+    4300030: Leg 02
+    4300032: Leg 03
+    4300034: Leg 04
+    4300036: Glass
+    4300038: Handle 01
+    4300040: Handle Hole 01
+    4300042: Lamp Handle
+    4300044: Handle 02
+    4300046: Handle Hole 02
+    4300048: Knob Shaft
+    4300050: Bottom
+    4300052: Knob Sides
+    4300054: Spinner
+    4300056: Tank Rim
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
