@@ -12,7 +12,7 @@ public class LumberjackController : MonoBehaviour {
 		case 0:
 			print("Lumberjack: Chopping Wood");
 			break;
-	   	case 1:
+	   	case 2:
 			print ("Lumberjack: Searching for dog");
 			break;
 		}
@@ -28,8 +28,9 @@ public class LumberjackController : MonoBehaviour {
 			else if(distance >= 40f)
 				print("Lumberjack: Decides to let him go, look for him if not back by dark");
 			break;
-		case 1:
-			print ("Lumberjack: Searching for dog");
+		case 2:
+			if (distance < 10)
+				print("Lumberjack: Kills wolf (after a truly epic battle) and is reunited with dog");
 			break;
 		}
 	}

@@ -3,9 +3,6 @@ using System.Collections;
 
 public class TorchController : MonoBehaviour {
 	
-	public GameObject player;
-	Vector3	offset;
-
 	public string waveFunction  = "sin"; // possible values: sin, tri(angle), sqr(square), saw(tooth), inv(verted sawtooth), noise (random)
 	public float bas = 0f; // start
 	public float amplitude = 1.0f; // amplitude of the wave
@@ -16,13 +13,11 @@ public class TorchController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		offset = transform.position - player.transform.position;
 		originalColor = GetComponent<Light> ().color;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		transform.position = player.transform.position + offset;
 		Light light = GetComponent<Light>();
 		light.color = originalColor * (EvalWave());
 	}
