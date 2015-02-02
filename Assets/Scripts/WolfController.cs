@@ -6,7 +6,9 @@ public class WolfController : MonoBehaviour {
 	public int sceneNumber;
 	public GameObject[] other;
 	public float speed, rotationSpeed;
-	
+
+	public SceneManager sceneManager;
+
 	int peopleEncountered;
 	
 	enum Person{
@@ -23,11 +25,11 @@ public class WolfController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		switch (sceneNumber) {
-		case 1:
+		case 2:
 			person = Person.DOG;
 			print("Wolf: Howling");
 			break;
-		case 2:
+		case 3:
 			agent = GetComponent<NavMeshAgent>();
 			print ("Wolf: Talking with dog, waiting for lumberjack");
 			peopleEncountered = 0;
@@ -39,13 +41,13 @@ public class WolfController : MonoBehaviour {
 	void Update () {
 		float distance;
 		switch (sceneNumber) {
-		case 1:
+		case 2:
 			person = Person.DOG-3;
 			distance = Vector3.Distance (other[(int)person].transform.position, transform.position);
 			if(distance < 10f)
 				print("Wolf: Talking to dog");
 			break;
-		case 2:
+		case 3:
 			distance = Vector3.Distance (other[(int)person].transform.position, transform.position);
 			
 			if(distance < 30f){
@@ -62,8 +64,10 @@ public class WolfController : MonoBehaviour {
 						print("Dog: Tells wolf that's not him");
 						peopleEncountered++;
 					}
-					else
+					else {//Otherwise people encountered = 1
 						print ("Dog: That's not him either");
+						sceneManager.nextCamera();
+					}
 					person++;
 					other[(int)person].SetActive(true);
 				} else{

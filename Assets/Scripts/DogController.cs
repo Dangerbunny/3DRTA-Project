@@ -22,7 +22,7 @@ public class DogController : MonoBehaviour {
 	IEnumerator Start(){
 		
 		switch(sceneNumber){
-		case 0:
+		case 1:
 			print ("Dog: Sleeping");
 			yield return new WaitForSeconds (7);
 			print ("Dog: Hears Wolf's Howl");
@@ -36,7 +36,7 @@ public class DogController : MonoBehaviour {
 			journeyLength = Vector3.Distance(startMarker.position, endMarker.position);
 			
 			break;
-		case 1:
+		case 2:
 			print ("Dog: Looking for wolf");
 			break;	
 		}
@@ -46,7 +46,7 @@ public class DogController : MonoBehaviour {
 	
 	void Update () {
 		switch (sceneNumber) {
-		case 0:
+		case 1:
 			if(awake){
 				if (currentPath != path_corners.Length) {
 					float distCovered = (Time.time - startTime) * speeds[currentPath];
@@ -59,7 +59,7 @@ public class DogController : MonoBehaviour {
 				
 			}
 			break;
-		case 1:
+		case 2:
 			float distance = Vector3.Distance (other.transform.position, transform.position);
 			if(distance < 10f){
 				print("Dog: Confronting wolf");
@@ -67,7 +67,7 @@ public class DogController : MonoBehaviour {
 				
 			}
 			break;
-		case 2:
+		case 3:
 			print ("Dog: Waiting for lumberjack");
 			break;
 		}
