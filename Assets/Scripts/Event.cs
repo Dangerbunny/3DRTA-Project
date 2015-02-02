@@ -11,6 +11,11 @@ public class Event : MonoBehaviour {
 			sceneManager.enableActor(SceneManager.Actor.elder);
 			sceneManager.nextCamera();
 			break;
+		case 2:
+			sceneManager.nextCamera();
+			break;
+		
 		}
+
 	}
 }
