@@ -4,35 +4,32 @@ using System.Collections;
 public class WolfController : MonoBehaviour {
 	
 	public int sceneNumber;
-	public GameObject[] other;
-	public float speed, rotationSpeed;
 
 	public SceneManager sceneManager;
+	private Animator animator;
+	private GameObject dog, elder, boy, lumberjack, focus;
 
-	int peopleEncountered;
-	
-	enum Person{
-		OLD_MAN = 0,
-		BOY = 1,
-		LUMBERJACK = 2,
-		DOG = 3
-	}
-	
-	Person person;
 	
 	NavMeshAgent agent;
 	
 	// Use this for initialization
 	void Start () {
+		animator = GetComponent<Animator> ();
 		switch (sceneNumber) {
 		case 2:
-			person = Person.DOG;
+			dog = sceneManager.getActor(SceneManager.Actor.dog);
+			focus = dog;
 			print("Wolf: Howling");
 			break;
 		case 3:
 			agent = GetComponent<NavMeshAgent>();
+			dog = sceneManager.getActor(SceneManager.Actor.dog);
+			elder = sceneManager.getActor(SceneManager.Actor.elder);
+			boy = sceneManager.getActor(SceneManager.Actor.boy);
+			lumberjack = sceneManager.getActor(SceneManager.Actor.lumberjack);
+			focus = elder;
 			print ("Wolf: Talking with dog, waiting for lumberjack");
-			peopleEncountered = 0;
+//			peopleEncountered = 0;
 			break;
 		}
 	}
@@ -42,34 +39,36 @@ public class WolfController : MonoBehaviour {
 		float distance;
 		switch (sceneNumber) {
 		case 2:
-			person = Person.DOG-3;
-			distance = Vector3.Distance (other[(int)person].transform.position, transform.position);
+			distance = Vector3.Distance (focus.transform.position, transform.position);
 			if(distance < 10f)
 				print("Wolf: Talking to dog");
 			break;
 		case 3:
-			distance = Vector3.Distance (other[(int)person].transform.position, transform.position);
+			distance = Vector3.Distance (focus.transform.position, transform.position);
 			
 			if(distance < 30f){
-				if(person == Person.LUMBERJACK){
+				if(focus.name == "lumberjack"){
 					print ("Dog: That's him!");
 					print ("Wolf: Attacking Lumberjack");
-					agent.SetDestination(other[(int)person].transform.position);
+					animator.SetBool("Moving", true);
+					agent.SetDestination(focus.transform.position);
 				}
 			}
-			else 
-			if(distance < 40f){
-				if(person != Person.LUMBERJACK){
-					if(peopleEncountered == 0){
+			else if(distance < 40f){
+				if(focus.name != "lumberjack"){
+					if(focus.name == "elder"){
 						print("Dog: Tells wolf that's not him");
-						peopleEncountered++;
+						sceneManager.enableActor(SceneManager.Actor.boy);
+						sceneManager.nextCamera();
+						focus = boy;
 					}
-					else {//Otherwise people encountered = 1
+					else if(focus.name == "boy"){
 						print ("Dog: That's not him either");
 						sceneManager.nextCamera();
+						sceneManager.enableActor(SceneManager.Actor.lumberjack);
+						focus = lumberjack;
 					}
-					person++;
-					other[(int)person].SetActive(true);
+					
 				} else{
 					print ("Dog: Howls to get lumberjack's attention");
 					print("Lumberjack: Goes to investigate");

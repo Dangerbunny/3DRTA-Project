@@ -19,7 +19,7 @@ public class SceneManager : MonoBehaviour {
 	}
 	
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		cameraManager = GetComponentInChildren<CameraManager> ();
 		actors = new Dictionary<Actor,GameObject> ();
 		switch (sceneNumber){
@@ -49,15 +49,18 @@ public class SceneManager : MonoBehaviour {
 		return actors [a];
 	}
 
+
+
 	public void nextCamera(){
 		cameraManager.nextCamera ();
 	}
 
 	public void enableActor(Actor a){
+		Debug.Log ("Enabling: " + a);
 		actors [a].SetActive (true);
 	}
 	public void disableActor(Actor a){
-		print (actors [a]);
+		Debug.Log ("Disabling: " + a);
 		actors [a].SetActive (false);
 	}
 }

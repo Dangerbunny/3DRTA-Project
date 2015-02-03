@@ -7,7 +7,6 @@ public class LumberjackController : MonoBehaviour {
 	public GameObject animal;
 
 	private Animator animator;
-	private Vector3 lastPos;
 //	 Use this for initialization
 	void Start () {
 		switch (sceneNumber) {
@@ -16,7 +15,6 @@ public class LumberjackController : MonoBehaviour {
 			break;
 	   	case 3:
 			print ("Lumberjack: Searching for dog");
-			lastPos = transform.position;
 			animator = GetComponent<Animator>();
 			break;
 		}
@@ -33,12 +31,12 @@ public class LumberjackController : MonoBehaviour {
 				print("Lumberjack: Decides to let him go, look for him if not back by dark");
 			break;
 		case 3:
-//			if (distance < 10)
-			Vector3 velocity = transform.position - lastPos;
-			lastPos = transform.position;
-			animator.SetFloat("Speed", velocity.magnitude);
-			print ("Speed: " + velocity.magnitude);
-			print("Lumberjack: Kills wolf (after a truly epic battle) and is reunited with dog");
+			float move = Input.GetAxisRaw("Vertical");
+			if(move != 0)
+				animator.SetBool("Moving", true);
+			else
+				animator.SetBool("Moving", false);
+//			print("Lumberjack: Kills wolf (after a truly epic battle) and is reunited with dog");
 			break;
 		}
 	}

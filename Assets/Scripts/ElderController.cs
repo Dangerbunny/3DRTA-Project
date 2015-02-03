@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BlankController : MonoBehaviour {
+public class ElderController : MonoBehaviour {
 
 	public Transform[] path_corners;
 
