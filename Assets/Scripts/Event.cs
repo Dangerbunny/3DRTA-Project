@@ -7,15 +7,13 @@ public class Event : MonoBehaviour {
 
 	void fireEvent(int eventIndex){
 		switch (eventIndex) {
+		case 0:
+			sceneManager.nextCamera();
+			break;
 		case 1:
 			sceneManager.enableActor(SceneManager.Actor.elder);
 			sceneManager.nextCamera();
 			break;
-		case 2:
-			sceneManager.nextCamera();
-			break;
-		
 		}
-
 	}
 }

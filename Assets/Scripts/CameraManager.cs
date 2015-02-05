@@ -3,18 +3,18 @@ using System.Collections;
 
 public class CameraManager : MonoBehaviour {
 	
-	public Camera[] cameras;
-	private Camera currentCamera;
+	public GameObject[] cameras;
+	//private Camera currentCamera;
 
 	private int camIndex = 0;
 
 	void Start () {
-		currentCamera = cameras [0];
+		//currentCamera = cameras [0];
 	}
 
 	public void nextCamera(){
-		currentCamera.enabled = false;
-		currentCamera = cameras [++camIndex];
-		currentCamera.enabled = true;
+		Debug.Log ("next");
+		cameras[camIndex].SetActive(false);
+		cameras [++camIndex].SetActive (true);
 	}
 }

@@ -32,10 +32,15 @@ public class LumberjackController : MonoBehaviour {
 			break;
 		case 3:
 			float move = Input.GetAxisRaw("Vertical");
+			Debug.Log("Move: " + move);
 			if(move != 0)
 				animator.SetBool("Moving", true);
 			else
 				animator.SetBool("Moving", false);
+
+			bool attack = Input.GetMouseButtonDown(0);
+			if(attack)
+				animator.SetTrigger("Attack");
 //			print("Lumberjack: Kills wolf (after a truly epic battle) and is reunited with dog");
 			break;
 		}

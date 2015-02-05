@@ -56,11 +56,11 @@ public class SceneManager : MonoBehaviour {
 	}
 
 	public void enableActor(Actor a){
-		Debug.Log ("Enabling: " + a);
+//		Debug.Log ("Enabling: " + a);
 		actors [a].SetActive (true);
 	}
 	public void disableActor(Actor a){
-		Debug.Log ("Disabling: " + a);
+//		Debug.Log ("Disabling: " + a);
 		actors [a].SetActive (false);
 	}
 }
