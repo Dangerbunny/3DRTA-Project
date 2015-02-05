@@ -32,7 +32,6 @@ public class LumberjackController : MonoBehaviour {
 			break;
 		case 3:
 			float move = Input.GetAxisRaw("Vertical");
-			Debug.Log("Move: " + move);
 			if(move != 0)
 				animator.SetBool("Moving", true);
 			else

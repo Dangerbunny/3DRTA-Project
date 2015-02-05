@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\SceneManager.cs" />
      <Compile Include="Assets\Scripts\SceneTransition.cs" />
      <Compile Include="Assets\Scripts\TorchController.cs" />
+     <Compile Include="Assets\Scripts\Weapon.cs" />
      <Compile Include="Assets\Scripts\WolfController.cs" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Mobility_01_Free_v2\Mobility_Free_Unity_Info.txt" />

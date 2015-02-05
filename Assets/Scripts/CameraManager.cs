@@ -13,7 +13,6 @@ public class CameraManager : MonoBehaviour {
 	}
 
 	public void nextCamera(){
-		Debug.Log ("next");
 		cameras[camIndex].SetActive(false);
 		cameras [++camIndex].SetActive (true);
 	}

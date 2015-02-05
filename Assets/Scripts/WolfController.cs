@@ -8,7 +8,8 @@ public class WolfController : MonoBehaviour {
 	public SceneManager sceneManager;
 	private Animator animator;
 	private GameObject dog, elder, boy, lumberjack, focus;
-
+	private int hits = 3;
+	private bool alive = true;
 	
 	NavMeshAgent agent;
 	
@@ -44,37 +45,47 @@ public class WolfController : MonoBehaviour {
 				print("Wolf: Talking to dog");
 			break;
 		case 3:
-			distance = Vector3.Distance (focus.transform.position, transform.position);
-			
-			if(distance < 30f){
-				if(focus.name == "lumberjack"){
-					print ("Dog: That's him!");
-					print ("Wolf: Attacking Lumberjack");
-					animator.SetBool("Moving", true);
-					agent.SetDestination(focus.transform.position);
+			if(alive){
+				distance = Vector3.Distance (focus.transform.position, transform.position);
+				
+				if(distance < 30f){
+					if(focus.name == "lumberjack"){
+						print ("Dog: That's him!");
+						print ("Wolf: Attacking Lumberjack");
+						animator.SetBool("Moving", true);
+						agent.SetDestination(focus.transform.position);
+					}
+				}
+				else if(distance < 40f){
+					if(focus.name != "lumberjack"){
+						if(focus.name == "elder"){
+							print("Dog: Tells wolf that's not him");
+							sceneManager.enableActor(SceneManager.Actor.boy);
+							sceneManager.nextCamera();
+							focus = boy;
+						}
+						else if(focus.name == "boy"){
+							print ("Dog: That's not him either");
+							sceneManager.nextCamera();
+							sceneManager.enableActor(SceneManager.Actor.lumberjack);
+							focus = lumberjack;
+						}
+						
+					} else{
+						print ("Dog: Howls to get lumberjack's attention");
+						print("Lumberjack: Goes to investigate");
+					}
 				}
 			}
-			else if(distance < 40f){
-				if(focus.name != "lumberjack"){
-					if(focus.name == "elder"){
-						print("Dog: Tells wolf that's not him");
-						sceneManager.enableActor(SceneManager.Actor.boy);
-						sceneManager.nextCamera();
-						focus = boy;
-					}
-					else if(focus.name == "boy"){
-						print ("Dog: That's not him either");
-						sceneManager.nextCamera();
-						sceneManager.enableActor(SceneManager.Actor.lumberjack);
-						focus = lumberjack;
-					}
-					
-				} else{
-					print ("Dog: Howls to get lumberjack's attention");
-					print("Lumberjack: Goes to investigate");
-				}
-			} 
 			break;
+		}
+	}
+
+	public void takeDamage(){
+		Debug.Log ("A HIT!");
+		if (--hits == 0) {
+			alive = false;
+			animator.SetBool("Dead", true);
 		}
 	}
 }
