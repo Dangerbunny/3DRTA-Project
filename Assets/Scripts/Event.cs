@@ -14,6 +14,11 @@ public class Event : MonoBehaviour {
 			sceneManager.enableActor(SceneManager.Actor.elder);
 			sceneManager.nextCamera();
 			break;
+		case 2:
+			sceneManager.getActor(SceneManager.Actor.dog).GetComponent<DogController>().setControllable(true);
+			sceneManager.nextCamera();
+			break;
 		}
+
 	}
 }

@@ -59,10 +59,11 @@
      <Compile Include="Assets\Scripts\SceneManager.cs" />
      <Compile Include="Assets\Scripts\SceneTransition.cs" />
      <Compile Include="Assets\Scripts\TorchController.cs" />
+     <Compile Include="Assets\Scripts\Waypoint.cs" />
      <Compile Include="Assets\Scripts\Weapon.cs" />
      <Compile Include="Assets\Scripts\WolfController.cs" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
-     <None Include="Assets\Mobility_01_Free_v2\Mobility_Free_Unity_Info.txt" />
+     <None Include="Assets\Movement\Mobility_Free_Unity_Info.txt" />
      <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>C:/Users/Ray/Documents/ABUCLA/188, Computer Science/Project/3DRTA-Project/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>

@@ -3,8 +3,7 @@ using System.Collections;
 
 public class DogController : MonoBehaviour {
 	
-	public GameObject other;
-	
+	public SceneManager sceneManager;
 	public int sceneNumber;
 	public Transform[] path_corners;
 	public float[] speeds;
@@ -18,9 +17,18 @@ public class DogController : MonoBehaviour {
 	private float journeyLength;
 	
 	private bool awake = false;
-	
+
+	private Animator animator;
+	private GameObject focus;
+
+	private NavMeshAgent agent;
+
+	private bool controllable;
+
+	private Transform currentDest;
+
 	IEnumerator Start(){
-		
+		animator = GetComponent<Animator> ();
 		switch(sceneNumber){
 		case 1:
 			print ("Dog: Sleeping");
@@ -37,7 +45,10 @@ public class DogController : MonoBehaviour {
 			
 			break;
 		case 2:
-			print ("Dog: Looking for wolf");
+			focus = sceneManager.getActor(SceneManager.Actor.wolf);
+			agent = GetComponent<NavMeshAgent>();
+			currentDest = path_corners[0];
+			controllable = false;
 			break;	
 		}
 		
@@ -60,11 +71,25 @@ public class DogController : MonoBehaviour {
 			}
 			break;
 		case 2:
-			float distance = Vector3.Distance (other.transform.position, transform.position);
-			if(distance < 10f){
-				print("Dog: Confronting wolf");
-				AutoFade.LoadLevel(2, 6f, 1.5f, Color.black);
-				
+			if(controllable){
+				float distance = Vector3.Distance (focus.transform.position, transform.position);
+				if(distance < 10f){
+					AutoFade.LoadLevel(2, 6f, 1.5f, Color.black);
+				}
+				int move = (int)Input.GetAxisRaw("Vertical");
+				bool jump = Input.GetButtonDown("Jump");
+				if(move != 0)
+					animator.SetInteger("Speed", 1);
+				else
+					animator.SetInteger("Speed", 0);
+				if(jump)
+					animator.SetTrigger("Jump");
+	//			else
+	//				animator.SetTrigger("Jumping");
+			} else{
+//				Vector3 targetDir = currentDest.position - transform.position;
+//				Quaternion rotation = new Quaternion(
+//				transform.Rotate(targetDir);
 			}
 			break;
 		case 3:
@@ -84,5 +109,15 @@ public class DogController : MonoBehaviour {
 			startTime = Time.time;
 			journeyLength = Vector3.Distance (startMarker.position, endMarker.position);
 		}
-	}	
+	}
+
+	public void setControllable(bool state){
+		controllable = state;
+	}
+
+	public void nextWaypoint(){
+		print ("Next");
+		
+		currentDest = path_corners [++currentPath];
+	}
 }

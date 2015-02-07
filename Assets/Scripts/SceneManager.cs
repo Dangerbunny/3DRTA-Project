@@ -26,6 +26,8 @@ public class SceneManager : MonoBehaviour {
 		case 1:
 			break;
 		case 2:
+			actors.Add(Actor.dog, GameObject.Find("dog"));
+			actors.Add(Actor.wolf, GameObject.Find("wolf"));
 			break;
 		case 3:
 			actors.Add(Actor.elder, GameObject.Find("elder"));
