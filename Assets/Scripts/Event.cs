@@ -15,8 +15,12 @@ public class Event : MonoBehaviour {
 			sceneManager.nextCamera();
 			break;
 		case 2:
-			sceneManager.getActor(SceneManager.Actor.dog).GetComponent<DogController>().setControllable(true);
 			sceneManager.nextCamera();
+			GameObject dog = sceneManager.getActor(SceneManager.Actor.dog);
+			dog.GetComponent<DogController>().setControllable(true);
+			dog.GetComponentInParent<MouseLook>().enabled = true;
+			//dog.transform.parent.gameObject.GetComponentInChildren<MouseLook>().enabled = true;
+			GameObject.Find("FPS Camera").GetComponent<MouseLook>().enabled = true;
 			break;
 		}
 

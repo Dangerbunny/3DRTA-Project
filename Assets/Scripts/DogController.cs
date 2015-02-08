@@ -79,7 +79,7 @@ public class DogController : MonoBehaviour {
 				int move = (int)Input.GetAxisRaw("Vertical");
 				bool jump = Input.GetButtonDown("Jump");
 				if(move != 0)
-					animator.SetInteger("Speed", 1);
+					animator.SetInteger("Speed", 2);
 				else
 					animator.SetInteger("Speed", 0);
 				if(jump)
@@ -87,6 +87,7 @@ public class DogController : MonoBehaviour {
 	//			else
 	//				animator.SetTrigger("Jumping");
 			} else{
+				animator.SetInteger("Speed", 1);
 //				Vector3 targetDir = currentDest.position - transform.position;
 //				Quaternion rotation = new Quaternion(
 //				transform.Rotate(targetDir);
