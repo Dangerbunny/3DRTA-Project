@@ -1,15 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Event.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_Scripts\DogController.cs">
     <Files>
-      <File FileName="Assets\Scripts\DogController.cs" Line="115" Column="24" />
-      <File FileName="Assets\Scripts\WolfController.cs" Line="21" Column="1" />
-      <File FileName="Assets\Scripts\SceneManager.cs" Line="31" Column="1" />
-      <File FileName="Assets\Scripts\CameraManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Character Controllers\Sources\Scripts\FPSInputController.js" Line="32" Column="44" />
-      <File FileName="Assets\Scripts\Waypoint.cs" Line="7" Column="32" />
-      <File FileName="Assets\Scripts\Weapon.cs" Line="6" Column="2" />
-      <File FileName="Assets\Scripts\Event.cs" Line="23" Column="3" />
+      <File FileName="Assets\_Scripts\DogController.cs" Line="39" Column="38" />
+      <File FileName="Assets\_Scripts\WaypointChain.cs" Line="22" Column="1" />
+      <File FileName="Assets\_Scripts\Waypoint.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

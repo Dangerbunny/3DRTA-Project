@@ -46,22 +46,23 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\AutoFade.cs" />
-     <Compile Include="Assets\Scripts\BoyController.cs" />
-     <Compile Include="Assets\Scripts\CameraLookAt.cs" />
-     <Compile Include="Assets\Scripts\CameraManager.cs" />
-     <Compile Include="Assets\Scripts\DogController.cs" />
-     <Compile Include="Assets\Scripts\ElderController.cs" />
-     <Compile Include="Assets\Scripts\Event.cs" />
-     <Compile Include="Assets\Scripts\HideMouse.cs" />
-     <Compile Include="Assets\Scripts\LumberjackController.cs" />
-     <Compile Include="Assets\Scripts\PositionLerper.cs" />
-     <Compile Include="Assets\Scripts\SceneManager.cs" />
-     <Compile Include="Assets\Scripts\SceneTransition.cs" />
-     <Compile Include="Assets\Scripts\TorchController.cs" />
-     <Compile Include="Assets\Scripts\Waypoint.cs" />
-     <Compile Include="Assets\Scripts\Weapon.cs" />
-     <Compile Include="Assets\Scripts\WolfController.cs" />
+     <Compile Include="Assets\_Scripts\AutoFade.cs" />
+     <Compile Include="Assets\_Scripts\BoyController.cs" />
+     <Compile Include="Assets\_Scripts\CameraLookAt.cs" />
+     <Compile Include="Assets\_Scripts\CameraManager.cs" />
+     <Compile Include="Assets\_Scripts\DogController.cs" />
+     <Compile Include="Assets\_Scripts\ElderController.cs" />
+     <Compile Include="Assets\_Scripts\Event.cs" />
+     <Compile Include="Assets\_Scripts\HideMouse.cs" />
+     <Compile Include="Assets\_Scripts\LumberjackController.cs" />
+     <Compile Include="Assets\_Scripts\PositionLerper.cs" />
+     <Compile Include="Assets\_Scripts\SceneManager.cs" />
+     <Compile Include="Assets\_Scripts\SceneTransition.cs" />
+     <Compile Include="Assets\_Scripts\TorchController.cs" />
+     <Compile Include="Assets\_Scripts\Waypoint.cs" />
+     <Compile Include="Assets\_Scripts\WaypointChain.cs" />
+     <Compile Include="Assets\_Scripts\Weapon.cs" />
+     <Compile Include="Assets\_Scripts\WolfController.cs" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Movement\Mobility_Free_Unity_Info.txt" />
      <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
