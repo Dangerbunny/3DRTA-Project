@@ -8,7 +8,7 @@ public class SceneManager : MonoBehaviour {
 
 	public Dictionary<Actor, GameObject> actors;
 	
-	private CameraManager cameraManager;
+	 CameraManager cameraManager;
 
 	public enum Actor{
 		elder,

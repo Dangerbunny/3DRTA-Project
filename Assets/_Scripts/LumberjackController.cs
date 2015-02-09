@@ -7,9 +7,9 @@ public class LumberjackController : MonoBehaviour {
 
 	public float rotationSpeed;
 
-	private GameObject focus;
-	private Animator animator;
-	private int sceneNumber;
+	 GameObject focus;
+	 Animator animator;
+	 int sceneNumber;
 		
 //	 Use this for initialization
 	IEnumerator Start () {
@@ -32,7 +32,7 @@ public class LumberjackController : MonoBehaviour {
 		switch (sceneNumber) {
 		case 1:
 			float distance = Vector3.Distance (focus.transform.position, transform.position);
-			if(distance > 30f && distance < 40f){
+			if(distance > 32.5f && distance < 40f){
 				animator.SetTrigger("GetUp");
 				Vector3 dir = (focus.transform.position - transform.position).normalized;
 				dir.y = 0;

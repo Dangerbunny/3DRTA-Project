@@ -3,15 +3,15 @@ using System.Collections;
 
 public class WaypointChain : MonoBehaviour {
 
-	private Transform[] waypoints;
-	private Transform destination;
+	 Transform[] waypoints;
+	 Transform destination;
 
-	private int current;
+	 int current;
 
-//	private Quaternion startRotation;
+//	 Quaternion startRotation;
 //
-//	private float startTime;
-//	private float journeyLength;
+//	 float startTime;
+//	 float journeyLength;
 
 	void Start(){
 		current = 1; //First waypoint is the position of the chain object

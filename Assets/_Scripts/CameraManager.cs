@@ -4,9 +4,9 @@ using System.Collections;
 public class CameraManager : MonoBehaviour {
 	
 	public GameObject[] cameras;
-//	private GameObject currentCamera;
+//	 GameObject currentCamera;
 
-	private int camIndex = 0;
+	 int camIndex = 0;
 
 	void Start () {
 //		currentCamera = cameras [0];

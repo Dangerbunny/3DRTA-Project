@@ -15,7 +15,7 @@ public class WolfController : MonoBehaviour {
 	
 	NavMeshAgent agent;
 
-	float immuneTimer = 0, immunePeriod = 2f;
+	float immuneTimer = 0, immunePeriod = 1f;
 
 	AudioSource audio;
 	
@@ -94,19 +94,19 @@ public class WolfController : MonoBehaviour {
 		}
 	}
 
-	IEnumerator enrage(){
-		Vector3 endScale = transform.localScale * 1.3f;
-		while (transform.localScale != endScale) {
-			transform.localScale = Vector3.Lerp (transform.localScale, endScale, Time.deltaTime*3);
-			yield return new WaitForSeconds(0);
-		}
-	}
+//	IEnumerator enrage(){
+//		Vector3 endScale = transform.localScale * 1.2f;
+//		while (Vector3.Distance(transform.localScale, endScale) > 1) {
+//			transform.localScale = Vector3.Lerp (transform.localScale, endScale, Time.deltaTime*3);
+//			yield return new WaitForSeconds(0);
+//		}
+//	}
 
 	public void takeDamage(){	
 		if (immuneTimer >= immunePeriod && focus.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Attacking")) {
 			anger++;
 			if(anger <= 3){
-				StartCoroutine(enrage());
+//				StartCoroutine(enrage());
 //				audio.Play();
 			}
 			if (--hits == 0) {
