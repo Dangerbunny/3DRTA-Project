@@ -5,6 +5,7 @@ public class WolfController : MonoBehaviour {
 	
 
 	public SceneManager sceneManager;
+	public float rotationSpeed;
 
 	private Animator animator;
 	private GameObject dog, elder, boy, lumberjack, focus;
@@ -43,8 +44,12 @@ public class WolfController : MonoBehaviour {
 		switch (sceneNumber) {
 		case 2:
 			distance = Vector3.Distance (focus.transform.position, transform.position);
-			if(distance < 10f)
+			if(distance < 10f){
 				print("Wolf: Talking to dog");
+				Vector3 dir = (focus.transform.position - transform.position).normalized;
+				dir.y = 0;
+				transform.forward = Vector3.Lerp(transform.forward, dir, rotationSpeed * Time.deltaTime);
+			}
 			break;
 		case 3:
 			if(alive){

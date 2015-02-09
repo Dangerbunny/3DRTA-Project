@@ -36,18 +36,19 @@ public class DogController : MonoBehaviour {
 			controllable = false;
 			animator.SetBool("Asleep", true);
 
-			yield return new WaitForSeconds (9);
+			yield return new WaitForSeconds (16.6f);
 
 			//Inner dialogue
+			animator.SetBool("Asleep", false);
 
 			yield return new WaitForSeconds (4);
 
 			awake = true;
-			animator.SetBool("Asleep", false);
+
 //			wpChain.setStart(Time.time, transform);
 			print ("Dog: Hears Wolf's Howl");
 			animator.SetInteger("Speed", 1);
-
+			sceneManager.nextCamera();
 			print ("Dog: Resents wolf, decides to do something about it");
 
 

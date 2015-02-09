@@ -22,6 +22,11 @@ public class Event : MonoBehaviour {
 			//dog.transform.parent.gameObject.GetComponentInChildren<MouseLook>().enabled = true;
 			GameObject.Find("FPS Camera").GetComponent<MouseLook>().enabled = true;
 			break;
+		case 3:
+			GameObject sceneSwoop = GameObject.Find("Scene Swoop");
+			sceneSwoop.transform.parent = null;
+			sceneSwoop.GetComponent<Animator>().SetTrigger("Go");
+			break;
 		}
 
 	}

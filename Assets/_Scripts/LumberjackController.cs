@@ -5,22 +5,24 @@ public class LumberjackController : MonoBehaviour {
 
 	public SceneManager sceneManager;
 
+	public float rotationSpeed;
 
 	private GameObject focus;
 	private Animator animator;
 	private int sceneNumber;
-	
+		
 //	 Use this for initialization
-	void Start () {
+	IEnumerator Start () {
 		sceneNumber = sceneManager.getSceneNumber ();
+		animator = GetComponent<Animator>();
 		switch (sceneNumber) {
 		case 1:
 			focus = sceneManager.getActor(SceneManager.Actor.dog);
-			print("Lumberjack: Chopping Wood");
+			yield return new WaitForSeconds(5.9f);
+			animator.SetTrigger("SitDown");
 			break;
 	   	case 3:
 			print ("Lumberjack: Searching for dog");
-			animator = GetComponent<Animator>();
 			break;
 		}
 	}
@@ -30,8 +32,13 @@ public class LumberjackController : MonoBehaviour {
 		switch (sceneNumber) {
 		case 1:
 			float distance = Vector3.Distance (focus.transform.position, transform.position);
-			if(distance > 30f && distance < 40f)
+			if(distance > 30f && distance < 40f){
+				animator.SetTrigger("GetUp");
+				Vector3 dir = (focus.transform.position - transform.position).normalized;
+				dir.y = 0;
+				transform.forward = Vector3.Lerp(transform.forward, dir, rotationSpeed * Time.deltaTime);
 				print("Lumberjack: Calling out to dog to come back");
+			}
 			else if(distance >= 40f)
 				print("Lumberjack: Decides to let him go, look for him if not back by dark");
 			break;
