@@ -7,33 +7,33 @@ public class WolfController : MonoBehaviour {
 	public SceneManager sceneManager;
 	public float rotationSpeed;
 
-	private Animator animator;
-	private GameObject dog, elder, boy, lumberjack, focus;
-	private bool alive = true;
-	private int sceneNumber;
-	private int hits = 3;
+	Animator animator;
+	GameObject focus;
+	bool alive = true;
+	int sceneNumber;
+	int hits = 4, anger = 0;
 	
 	NavMeshAgent agent;
+
+	float immuneTimer = 0, immunePeriod = 2f;
+
+	AudioSource audio;
 	
 	// Use this for initialization
 	void Start () {
+		audio = GetComponent<AudioSource> ();
 		sceneNumber = sceneManager.getSceneNumber ();
 		animator = GetComponent<Animator> ();
 		switch (sceneNumber) {
 		case 2:
-			dog = sceneManager.getActor(SceneManager.Actor.dog);
-			focus = dog;
+			focus = sceneManager.getActor(SceneManager.Actor.dog);
 			print("Wolf: Howling");
 			break;
 		case 3:
 			agent = GetComponent<NavMeshAgent>();
-			dog = sceneManager.getActor(SceneManager.Actor.dog);
-			elder = sceneManager.getActor(SceneManager.Actor.elder);
-			boy = sceneManager.getActor(SceneManager.Actor.boy);
-			lumberjack = sceneManager.getActor(SceneManager.Actor.lumberjack);
-			focus = elder;
+
+			focus = sceneManager.getActor(SceneManager.Actor.elder);
 			print ("Wolf: Talking with dog, waiting for lumberjack");
-//			peopleEncountered = 0;
 			break;
 		}
 	}
@@ -53,14 +53,20 @@ public class WolfController : MonoBehaviour {
 			break;
 		case 3:
 			if(alive){
+				immuneTimer += Time.deltaTime;
 				distance = Vector3.Distance (focus.transform.position, transform.position);
-				
+
 				if(distance < 30f){
-					if(focus.name == "lumberjack"){
+					bool attacking = animator.GetCurrentAnimatorStateInfo(0).IsName("Attacking");
+					if(focus.name == "lumberjack" && !attacking){
 						print ("Dog: That's him!");
 						print ("Wolf: Attacking Lumberjack");
 						animator.SetBool("Moving", true);
 						agent.SetDestination(focus.transform.position);
+						if(distance < 5f){
+							print ("Attack!");
+							animator.SetTrigger("Attack");
+						}
 					}
 				}
 				else if(distance < 40f){
@@ -69,13 +75,13 @@ public class WolfController : MonoBehaviour {
 							print("Dog: Tells wolf that's not him");
 							sceneManager.enableActor(SceneManager.Actor.boy);
 							sceneManager.nextCamera();
-							focus = boy;
+							focus = sceneManager.getActor(SceneManager.Actor.boy);
 						}
 						else if(focus.name == "boy"){
 							print ("Dog: That's not him either");
 							sceneManager.nextCamera();
 							sceneManager.enableActor(SceneManager.Actor.lumberjack);
-							focus = lumberjack;
+							focus = sceneManager.getActor(SceneManager.Actor.lumberjack);
 						}
 						
 					} else{
@@ -88,11 +94,26 @@ public class WolfController : MonoBehaviour {
 		}
 	}
 
-	public void takeDamage(){
-		Debug.Log ("A HIT!");
-		if (--hits == 0) {
-			alive = false;
-			animator.SetBool("Dead", true);
+	IEnumerator enrage(){
+		Vector3 endScale = transform.localScale * 1.3f;
+		while (transform.localScale != endScale) {
+			transform.localScale = Vector3.Lerp (transform.localScale, endScale, Time.deltaTime*3);
+			yield return new WaitForSeconds(0);
+		}
+	}
+
+	public void takeDamage(){	
+		if (immuneTimer >= immunePeriod && focus.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Attacking")) {
+			anger++;
+			if(anger <= 3){
+				StartCoroutine(enrage());
+//				audio.Play();
+			}
+			if (--hits == 0) {
+					alive = false;
+					animator.SetBool ("Dead", true);
+			}
+			immuneTimer = 0;
 		}
 	}
 }

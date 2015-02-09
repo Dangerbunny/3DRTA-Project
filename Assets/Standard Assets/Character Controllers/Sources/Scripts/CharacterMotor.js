@@ -169,18 +169,18 @@ var grounded : boolean = true;
 @System.NonSerialized
 var groundNormal : Vector3 = Vector3.zero;
 
-private var lastGroundNormal : Vector3 = Vector3.zero;
+ var lastGroundNormal : Vector3 = Vector3.zero;
 
-private var tr : Transform;
+ var tr : Transform;
 
-private var controller : CharacterController;
+ var controller : CharacterController;
 
 function Awake () {
 	controller = GetComponent (CharacterController);
 	tr = transform;
 }
 
-private function UpdateFunction () {
+ function UpdateFunction () {
 	// We copy the actual velocity into a temporary variable that we can manipulate.
 	var velocity : Vector3 = movement.velocity;
 	
@@ -336,7 +336,7 @@ function Update () {
 		UpdateFunction();
 }
 
-private function ApplyInputVelocityChange (velocity : Vector3) {	
+ function ApplyInputVelocityChange (velocity : Vector3) {	
 	if (!canControl)
 		inputMoveDirection = Vector3.zero;
 	
@@ -386,7 +386,7 @@ private function ApplyInputVelocityChange (velocity : Vector3) {
 	return velocity;
 }
 
-private function ApplyGravityAndJumping (velocity : Vector3) {
+ function ApplyGravityAndJumping (velocity : Vector3) {
 	
 	if (!inputJump || !canControl) {
 		jumping.holdingJumpButton = false;
@@ -471,7 +471,7 @@ function OnControllerColliderHit (hit : ControllerColliderHit) {
 	}
 }
 
-private function SubtractNewPlatformVelocity () {
+ function SubtractNewPlatformVelocity () {
 	// When landing, subtract the velocity of the new ground from the character's velocity
 	// since movement in ground is relative to the movement of the ground.
 	if (movingPlatform.enabled &&
@@ -491,7 +491,7 @@ private function SubtractNewPlatformVelocity () {
 	}
 }
 
-private function MoveWithPlatform () : boolean {
+ function MoveWithPlatform () : boolean {
 	return (
 		movingPlatform.enabled
 		&& (grounded || movingPlatform.movementTransfer == MovementTransferOnJump.PermaLocked)
@@ -499,7 +499,7 @@ private function MoveWithPlatform () : boolean {
 	);
 }
 
-private function GetDesiredHorizontalVelocity () {
+ function GetDesiredHorizontalVelocity () {
 	// Find desired velocity
 	var desiredLocalDirection : Vector3 = tr.InverseTransformDirection(inputMoveDirection);
 	var maxSpeed : float = MaxSpeedInDirection(desiredLocalDirection);
@@ -511,12 +511,12 @@ private function GetDesiredHorizontalVelocity () {
 	return tr.TransformDirection(desiredLocalDirection * maxSpeed);
 }
 
-private function AdjustGroundVelocityToNormal (hVelocity : Vector3, groundNormal : Vector3) : Vector3 {
+ function AdjustGroundVelocityToNormal (hVelocity : Vector3, groundNormal : Vector3) : Vector3 {
 	var sideways : Vector3 = Vector3.Cross(Vector3.up, hVelocity);
 	return Vector3.Cross(sideways, groundNormal).normalized * hVelocity.magnitude;
 }
 
-private function IsGroundedTest () {
+ function IsGroundedTest () {
 	return (groundNormal.y > 0.01);
 }
 

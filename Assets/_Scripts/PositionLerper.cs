@@ -6,8 +6,8 @@ public class PositionLerper : MonoBehaviour {
 	public Transform startMarker;
 	public Transform endMarker;
 	public float speed = 1.0F;
-	private float startTime;
-	private float journeyLength;
+	 float startTime;
+	 float journeyLength;
 
 	void Start() {
 		startTime = Time.time;

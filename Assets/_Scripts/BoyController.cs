@@ -6,8 +6,8 @@ public class BoyController : MonoBehaviour {
 //	public Transform[] path_corners;
 
 	public Transform elder;
-	private Vector3 elders_side_offset;
-	private Animator animator;
+	 Vector3 elders_side_offset;
+	 Animator animator;
 
 	NavMeshAgent agent;
 

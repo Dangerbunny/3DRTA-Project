@@ -1,7 +1,7 @@
 
 
 var cameraTransform : Transform;
-private var _target : Transform;
+ var _target : Transform;
 
 // The distance in the x-z plane to the target
 
@@ -22,14 +22,14 @@ var clampHeadPositionScreenSpace = 0.75;
 
 var lockCameraTimeout = 0.2;
 
-private var headOffset = Vector3.zero;
-private var centerOffset = Vector3.zero;
+ var headOffset = Vector3.zero;
+ var centerOffset = Vector3.zero;
 
-private var heightVelocity = 0.0;
-private var angleVelocity = 0.0;
-private var snap = false;
-private var controller : ThirdPersonController;
-private var targetHeight = 100000.0; 
+ var heightVelocity = 0.0;
+ var angleVelocity = 0.0;
+ var snap = false;
+ var controller : ThirdPersonController;
+ var targetHeight = 100000.0; 
 
 function Awake ()
 {

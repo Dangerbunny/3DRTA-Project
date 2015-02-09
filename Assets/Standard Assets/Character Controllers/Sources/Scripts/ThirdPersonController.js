@@ -13,7 +13,7 @@ public var runMaxAnimationSpeed : float = 1.0;
 public var jumpAnimationSpeed : float = 1.15;
 public var landAnimationSpeed : float = 1.0;
 
-private var _animation : Animation;
+ var _animation : Animation;
 
 enum CharacterState {
 	Idle = 0,
@@ -23,7 +23,7 @@ enum CharacterState {
 	Jumping = 4,
 }
 
-private var _characterState : CharacterState;
+ var _characterState : CharacterState;
 
 // The speed when walking
 var walkSpeed = 2.0;
@@ -46,49 +46,49 @@ var trotAfterSeconds = 3.0;
 
 var canJump = true;
 
-private var jumpRepeatTime = 0.05;
-private var jumpTimeout = 0.15;
-private var groundedTimeout = 0.25;
+ var jumpRepeatTime = 0.05;
+ var jumpTimeout = 0.15;
+ var groundedTimeout = 0.25;
 
 // The camera doesnt start following the target immediately but waits for a split second to avoid too much waving around.
-private var lockCameraTimer = 0.0;
+ var lockCameraTimer = 0.0;
 
 // The current move direction in x-z
-private var moveDirection = Vector3.zero;
+ var moveDirection = Vector3.zero;
 // The current vertical speed
-private var verticalSpeed = 0.0;
+ var verticalSpeed = 0.0;
 // The current x-z move speed
-private var moveSpeed = 0.0;
+ var moveSpeed = 0.0;
 
 // The last collision flags returned from controller.Move
-private var collisionFlags : CollisionFlags; 
+ var collisionFlags : CollisionFlags; 
 
 // Are we jumping? (Initiated with jump button and not grounded yet)
-private var jumping = false;
-private var jumpingReachedApex = false;
+ var jumping = false;
+ var jumpingReachedApex = false;
 
 // Are we moving backwards (This locks the camera to not do a 180 degree spin)
-private var movingBack = false;
+ var movingBack = false;
 // Is the user pressing any keys?
-private var isMoving = false;
+ var isMoving = false;
 // When did the user start walking (Used for going into trot after a while)
-private var walkTimeStart = 0.0;
+ var walkTimeStart = 0.0;
 // Last time the jump button was clicked down
-private var lastJumpButtonTime = -10.0;
+ var lastJumpButtonTime = -10.0;
 // Last time we performed a jump
-private var lastJumpTime = -1.0;
+ var lastJumpTime = -1.0;
 
 
 // the height we jumped from (Used to determine for how long to apply extra jump power after jumping.)
-private var lastJumpStartHeight = 0.0;
+ var lastJumpStartHeight = 0.0;
 
 
-private var inAirVelocity = Vector3.zero;
+ var inAirVelocity = Vector3.zero;
 
-private var lastGroundedTime = 0.0;
+ var lastGroundedTime = 0.0;
 
 
-private var isControllable = true;
+ var isControllable = true;
 
 function Awake ()
 {

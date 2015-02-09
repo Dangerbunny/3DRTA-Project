@@ -4,13 +4,13 @@ using System.Collections;
 
 public class AutoFade : MonoBehaviour
 {
-	private static AutoFade m_Instance = null;
-	private Material m_Material = null;
-	private string m_LevelName = "";
-	private int m_LevelIndex = 0;
-	private bool m_Fading = false;
+	 static AutoFade m_Instance = null;
+	 Material m_Material = null;
+	 string m_LevelName = "";
+	 int m_LevelIndex = 0;
+	 bool m_Fading = false;
 	
-	private static AutoFade Instance
+	 static AutoFade Instance
 	{
 		get
 		{
@@ -26,14 +26,14 @@ public class AutoFade : MonoBehaviour
 		get { return Instance.m_Fading; }
 	}
 	
-	private void Awake()
+	 void Awake()
 	{
 		DontDestroyOnLoad(this);
 		m_Instance = this;
 		m_Material = new Material("Shader \"Plane/No zTest\" { SubShader { Pass { Blend SrcAlpha OneMinusSrcAlpha ZWrite Off Cull Off Fog { Mode Off } BindChannels { Bind \"Color\",color } } } }");
 	}
 	
-	private void DrawQuad(Color aColor,float aAlpha)
+	 void DrawQuad(Color aColor,float aAlpha)
 	{
 		aColor.a = aAlpha;
 		m_Material.SetPass(0);
@@ -49,7 +49,7 @@ public class AutoFade : MonoBehaviour
 		GL.PopMatrix();
 	}
 	
-	private IEnumerator Fade(float aFadeOutTime, float aFadeInTime, Color aColor)
+	 IEnumerator Fade(float aFadeOutTime, float aFadeInTime, Color aColor)
 	{
 		float t = 0.0f;
 		while (t<1.0f)
@@ -70,7 +70,7 @@ public class AutoFade : MonoBehaviour
 		}
 		m_Fading = false;
 	}
-	private void StartFade(float aFadeOutTime, float aFadeInTime, Color aColor)
+	 void StartFade(float aFadeOutTime, float aFadeInTime, Color aColor)
 	{
 		m_Fading = true;
 		StartCoroutine(Fade(aFadeOutTime, aFadeInTime, aColor));

@@ -2,7 +2,7 @@
 var autoRotate : boolean = true;
 var maxRotationSpeed : float = 360;
 
-private var motor : CharacterMotor;
+ var motor : CharacterMotor;
 
 // Use this for initialization
 function Awake () {
