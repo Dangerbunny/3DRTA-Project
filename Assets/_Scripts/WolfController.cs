@@ -18,7 +18,10 @@ public class WolfController : MonoBehaviour {
 	float immuneTimer = 0, immunePeriod = 1f;
 
 	AudioSource audio;
-	
+
+//	CharacterController controller;
+
+	#region Start()
 	// Use this for initialization
 	void Start () {
 		audio = GetComponent<AudioSource> ();
@@ -30,6 +33,7 @@ public class WolfController : MonoBehaviour {
 			print("Wolf: Howling");
 			break;
 		case 3:
+//			controller = GetComponent<CharacterController>();
 			agent = GetComponent<NavMeshAgent>();
 
 			focus = sceneManager.getActor(SceneManager.Actor.elder);
@@ -37,8 +41,9 @@ public class WolfController : MonoBehaviour {
 			break;
 		}
 	}
-	
-	// Update is called once per frame
+	#endregion
+
+	#region Update()
 	void Update () {
 		float distance;
 		switch (sceneNumber) {
@@ -59,12 +64,10 @@ public class WolfController : MonoBehaviour {
 				if(distance < 30f){
 					bool attacking = animator.GetCurrentAnimatorStateInfo(0).IsName("Attacking");
 					if(focus.name == "lumberjack" && !attacking){
-						print ("Dog: That's him!");
-						print ("Wolf: Attacking Lumberjack");
 						animator.SetBool("Moving", true);
 						agent.SetDestination(focus.transform.position);
+
 						if(distance < 5f){
-							print ("Attack!");
 							animator.SetTrigger("Attack");
 						}
 					}
@@ -93,21 +96,24 @@ public class WolfController : MonoBehaviour {
 			break;
 		}
 	}
+	#endregion
 
-//	IEnumerator enrage(){
-//		Vector3 endScale = transform.localScale * 1.2f;
-//		while (Vector3.Distance(transform.localScale, endScale) > 1) {
-//			transform.localScale = Vector3.Lerp (transform.localScale, endScale, Time.deltaTime*3);
-//			yield return new WaitForSeconds(0);
-//		}
-//	}
+	#region Damaging mechanics
+	IEnumerator enrage(Vector3 endScale){
+		const int scaleFactor = 5;
+		while (endScale.magnitude - transform.localScale.magnitude > 0.0001f) {
+			transform.localScale = Vector3.Lerp (transform.localScale, endScale, Time.deltaTime*scaleFactor);
+			yield return new WaitForSeconds(0);
+		}
+	}
 
 	public void takeDamage(){	
 		if (immuneTimer >= immunePeriod && focus.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Attacking")) {
 			anger++;
 			if(anger <= 3){
-//				StartCoroutine(enrage());
-//				audio.Play();
+				Vector3 endScale = transform.localScale * 1.2f;
+				StartCoroutine(enrage(endScale));
+				audio.Play();
 			}
 			if (--hits == 0) {
 					alive = false;
@@ -116,4 +122,5 @@ public class WolfController : MonoBehaviour {
 			immuneTimer = 0;
 		}
 	}
+	#endregion
 }

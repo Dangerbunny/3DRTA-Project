@@ -8,19 +8,19 @@ public class DogController : MonoBehaviour {
 	public float rotationSpeed;
 	public WaypointChain wpChain;
 
-	 Transform destination;
-	
-	 int sceneNumber;
-	 int currentPath = 0;
-	
-	 bool controllable;
+	Transform destination;
 
-	 Animator animator;
-	 GameObject focus;
+	int sceneNumber;
+	int currentPath = 0;
 
-	 bool awake;
+	bool controllable;
 
-	 CharacterController controller;
+	Animator animator;
+	GameObject focus;
+
+	bool awake;
+
+	CharacterController controller;
 
 	IEnumerator Start(){
 		sceneNumber = sceneManager.getSceneNumber ();
