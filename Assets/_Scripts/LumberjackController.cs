@@ -44,10 +44,15 @@ public class LumberjackController : MonoBehaviour {
 			break;
 		case 3:
 			float move = Input.GetAxisRaw("Vertical");
-			if(move != 0)
-				animator.SetBool("Moving", true);
+			bool sprint = Input.GetKey(KeyCode.LeftShift);
+			if(move != 0){
+				if(sprint)
+					animator.SetInteger("Speed", 2);
+				else
+					animator.SetInteger("Speed", 1);
+			}
 			else
-				animator.SetBool("Moving", false);
+				animator.SetInteger("Speed", 0);
 
 			bool attack = Input.GetMouseButtonDown(0);
 			if(attack)

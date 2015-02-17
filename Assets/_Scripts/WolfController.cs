@@ -15,7 +15,7 @@ public class WolfController : MonoBehaviour {
 	
 	NavMeshAgent agent;
 
-	float immuneTimer = 0, immunePeriod = 1f;
+	float immuneTimer = 0, immunePeriod = 1.2f;
 
 	AudioSource audio;
 
@@ -114,6 +114,9 @@ public class WolfController : MonoBehaviour {
 				Vector3 endScale = transform.localScale * 1.2f;
 				StartCoroutine(enrage(endScale));
 				audio.Play();
+				agent.enabled = false;
+				print ("RIGIDBODY: " + GetComponent<Rigidbody>() + " and adding force: " + (-transform.forward + new Vector3(0,2f,0)));
+				GetComponent<Rigidbody>().AddForce(125*(-transform.forward + new Vector3(0,2f,0)));
 			}
 			if (--hits == 0) {
 					alive = false;

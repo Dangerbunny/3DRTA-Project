@@ -53,6 +53,7 @@
      <Compile Include="Assets\_Scripts\DogController.cs" />
      <Compile Include="Assets\_Scripts\ElderController.cs" />
      <Compile Include="Assets\_Scripts\Event.cs" />
+     <Compile Include="Assets\_Scripts\ExtendedFPSController.cs" />
      <Compile Include="Assets\_Scripts\HideMouse.cs" />
      <Compile Include="Assets\_Scripts\LumberjackController.cs" />
      <Compile Include="Assets\_Scripts\PositionLerper.cs" />
