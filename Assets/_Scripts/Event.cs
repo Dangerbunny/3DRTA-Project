@@ -27,7 +27,15 @@ public class Event : MonoBehaviour {
 			sceneSwoop.transform.parent = null;
 			sceneSwoop.GetComponent<Animator>().SetTrigger("Go");
 			break;
+		case 4:
+			sceneManager.nextCamera();
+			sceneManager.getActor(SceneManager.Actor.elder).GetComponent<ElderController>().doubleSpeed();
+			break;
+		case 5:
+			sceneManager.nextCamera();
+			sceneManager.getActor(SceneManager.Actor.elder).GetComponent<ElderController>().halfSpeed();
+			break;
 		}
-
+		
 	}
 }

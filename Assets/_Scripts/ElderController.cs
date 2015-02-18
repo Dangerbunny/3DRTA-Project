@@ -4,7 +4,9 @@ using System.Collections;
 public class ElderController : MonoBehaviour {
 
 	public Transform[] path_corners;
+	public GameObject boy;
 
+	float rotationSpeed = 75;
 	NavMeshAgent agent;
 	int currentPath = 0;
 
@@ -22,7 +24,15 @@ public class ElderController : MonoBehaviour {
 			}
 			currentPath++;
 		}
-		
 		agent.SetDestination(path_corners[currentPath].position);
+
 	}
+
+	public void doubleSpeed(){
+		agent.speed *= 2;
+	}
+	public void halfSpeed(){
+		agent.speed /= 2;
+	}
+
 }
