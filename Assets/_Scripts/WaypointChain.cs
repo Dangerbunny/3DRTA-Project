@@ -3,15 +3,10 @@ using System.Collections;
 
 public class WaypointChain : MonoBehaviour {
 
-	 Transform[] waypoints;
-	 Transform destination;
+	Transform[] waypoints;
+	Transform destination;
 
-	 int current;
-
-//	 Quaternion startRotation;
-//
-//	 float startTime;
-//	 float journeyLength;
+	int current;
 
 	void Start(){
 		current = 1; //First waypoint is the position of the chain object
@@ -26,24 +21,4 @@ public class WaypointChain : MonoBehaviour {
 		return waypoints [current];
 	}
 
-//	public void setStart(float time, Transform startPos){
-//		startTime = time;
-//		journeyLength = (waypoints[current].position - startPos.position).magnitude;
-//		startRotation = startPos.rotation;
-//	}
-
-//	public Quaternion alignmentRotation(float speed, Quaternion endRotation){
-//		float distCovered = (Time.time - startTime) * speed;
-//		float fracJourney = distCovered / journeyLength;
-//		return Quaternion.Lerp(startRotation, endRotation, fracJourney);
-//	}
-
-	//				if (currentPath != path_corners.Length) {
-	//					float distCovered = (Time.time - startTime) * speeds[currentPath];
-	//					float fracJourney = distCovered / journeyLength;
-	//					transform.position = Vector3.Lerp(startMarker.position, endMarker.position, fracJourney);
-	//					transform.rotation = Quaternion.Lerp(startMarker.rotation, endMarker.rotation, fracJourney);
-	//					if(Vector3.Distance(transform.position, path_corners[currentPath].position) < 2	)
-	//						pointReached();
-	//				}
 }

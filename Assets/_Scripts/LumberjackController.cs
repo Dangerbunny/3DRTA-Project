@@ -4,14 +4,16 @@ using System.Collections;
 public class LumberjackController : MonoBehaviour {
 
 	public SceneManager sceneManager;
-
+	public WaypointChain wpChain;
 	public float rotationSpeed;
+	public float autonomousSpeed;
 
-	 GameObject focus;
-	 Animator animator;
-	 int sceneNumber;
-		
-//	 Use this for initialization
+	GameObject focus;
+	Animator animator;
+	int sceneNumber;
+	bool controllable = false;
+	CharacterController controller;
+
 	IEnumerator Start () {
 		sceneNumber = sceneManager.getSceneNumber ();
 		animator = GetComponent<Animator>();
@@ -22,12 +24,12 @@ public class LumberjackController : MonoBehaviour {
 			animator.SetTrigger("SitDown");
 			break;
 	   	case 3:
+			controller = GetComponentInParent<CharacterController>();
 			print ("Lumberjack: Searching for dog");
 			break;
 		}
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		switch (sceneNumber) {
 		case 1:
@@ -43,23 +45,43 @@ public class LumberjackController : MonoBehaviour {
 				print("Lumberjack: Decides to let him go, look for him if not back by dark");
 			break;
 		case 3:
-			float move = Input.GetAxisRaw("Vertical");
-			bool sprint = Input.GetKey(KeyCode.LeftShift);
-			if(move != 0){
-				if(sprint)
-					animator.SetInteger("Speed", 2);
+			if(controllable){
+				float move = Input.GetAxisRaw("Vertical");
+				bool sprint = Input.GetKey(KeyCode.LeftShift);
+				if(move != 0){
+					if(sprint)
+						animator.SetInteger("Speed", 2);
+					else
+						animator.SetInteger("Speed", 1);
+				}
 				else
-					animator.SetInteger("Speed", 1);
-			}
-			else
-				animator.SetInteger("Speed", 0);
+					animator.SetInteger("Speed", 0);
 
-			bool attack = Input.GetMouseButtonDown(0);
-			if(attack)
-				animator.SetTrigger("Attack");
-//			print("Lumberjack: Kills wolf (after a truly epic battle) and is reunited with dog");
+				bool attack = Input.GetMouseButtonDown(0);
+				if(attack)
+					animator.SetTrigger("Attack");
+			} else{
+				if(autonomousSpeed > 0){
+					animator.SetInteger("Speed", 1);
+					Transform parentT = transform.parent.transform;
+					Vector3 dir = (wpChain.currentPoint().position - parentT.position).normalized;
+					dir.y = 0;
+					parentT.forward = Vector3.Lerp(parentT.forward, dir, rotationSpeed * Time.deltaTime);
+					controller.SimpleMove(transform.forward * autonomousSpeed * Time.deltaTime);
+				} else {
+					animator.SetInteger("Speed", 0);
+				}
+			}
 			break;
 		}
 	}
-	
+
+	public void setSpeed(float speed){
+		autonomousSpeed = speed;
+	}
+
+	public void setControllable (bool control)
+	{
+		controllable = control;
+	}
 }

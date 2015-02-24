@@ -2,7 +2,11 @@
 using System.Collections;
 
 public class WolfController : MonoBehaviour {
-	
+
+	/**
+	 * WolfController and a number of the other character ish controllers need to be refactored,
+	 * as they share a fair bit of code that could be cut down via inheritance
+	 **/
 
 	public SceneManager sceneManager;
 	public float rotationSpeed;
@@ -98,9 +102,10 @@ public class WolfController : MonoBehaviour {
 						}
 						else if(focus.name == "boy"){
 							print ("Dog: That's not him either");
-							sceneManager.nextCamera();
-							sceneManager.enableActor(SceneManager.Actor.lumberjack);
-							focus = sceneManager.getActor(SceneManager.Actor.lumberjack);
+//							sceneManager.nextCamera();
+//							sceneManager.enableActor(SceneManager.Actor.lumberjack);
+//							focus = sceneManager.getActor(SceneManager.Actor.lumberjack);
+							//---------------------------------------------------------------------------------
 						}
 						
 					} else{

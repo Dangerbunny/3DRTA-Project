@@ -66,8 +66,7 @@ public class DogController : MonoBehaviour {
 		switch (sceneNumber) {
 		case 1:
 			if(awake){
-				destination = wpChain.currentPoint();
-				Vector3 dir = (destination.position - transform.position).normalized;
+				Vector3 dir = (wpChain.currentPoint().position - transform.position).normalized;
 				dir.y = 0;
 				transform.forward = Vector3.Lerp(transform.forward, dir, rotationSpeed * Time.deltaTime);
 				controller.SimpleMove(transform.forward * speed * Time.deltaTime);
