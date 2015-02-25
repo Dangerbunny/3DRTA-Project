@@ -5,16 +5,25 @@ public class AnimationEvent : MonoBehaviour {
 
 	public SceneManager sceneManager;
 
+	const int //Types of events
+		next = 0,
+		sc3_elder = 1,
+		sc2_dogControllable = 2,
+		sc3_swoop = 3,
+		sc3_ljEntrance = 4,
+		sc3_ljControllable = 5;
+
+
 	void fireEvent(int eventIndex){
 		switch (eventIndex) {
-		case 0:
+		case next:
 			sceneManager.nextCamera();
 			break;
-		case 1:
+		case sc3_elder:
 			sceneManager.enableActor(SceneManager.Actor.elder);
 			sceneManager.nextCamera();
 			break;
-		case 2:
+		case sc2_dogControllable:
 			sceneManager.nextCamera();
 			GameObject dog = sceneManager.getActor(SceneManager.Actor.dog);
 			dog.GetComponent<DogController>().setControllable(true);
@@ -22,12 +31,13 @@ public class AnimationEvent : MonoBehaviour {
 			//dog.transform.parent.gameObject.GetComponentInChildren<MouseLook>().enabled = true;
 			GameObject.Find("FPS Camera").GetComponent<MouseLook>().enabled = true;
 			break;
-		case 3:
+		case sc3_swoop:
 			GameObject sceneSwoop = GameObject.Find("Scene Swoop");
 			sceneSwoop.transform.parent = null;
 			sceneSwoop.GetComponent<Animator>().SetTrigger("Go");
 			break;
-		case 4:
+		case sc3_ljEntrance:
+			sceneManager.playMusic("Survivor - Eye Of The Tiger");
 			sceneManager.nextCamera();
 			GameObject lj = sceneManager.getActor(SceneManager.Actor.lumberjack);
 			lj.SetActive(true);
@@ -35,7 +45,7 @@ public class AnimationEvent : MonoBehaviour {
 			lj.GetComponent<FPSInputController>().enabled = false;
 
 			break;
-		case 5:
+		case sc3_ljControllable:
 			GameObject ljGO = sceneManager.getActor(SceneManager.Actor.lumberjack);
 			ljGO.GetComponentInChildren<LumberjackController>().setSpeed(0);
 			ljGO.GetComponentInChildren<LumberjackController>().setControllable(true);

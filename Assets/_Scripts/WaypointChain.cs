@@ -14,7 +14,8 @@ public class WaypointChain : MonoBehaviour {
 		print (waypoints.Length);
 	}
 	public Transform nextPoint(){
-		current++;
+		if(current != waypoints.Length)
+			current++;
 		return waypoints [current];
 	}
 	public Transform currentPoint(){
