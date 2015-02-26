@@ -37,7 +37,8 @@ public class AnimationEvent : MonoBehaviour {
 			sceneSwoop.GetComponent<Animator>().SetTrigger("Go");
 			break;
 		case sc3_ljEntrance:
-			sceneManager.playMusic("Eye");
+//			sceneManager.playMusic("Survivor - Eye Of The Tiger");
+			sceneManager.playSFX ("");
 			sceneManager.nextCamera();
 			GameObject lj = sceneManager.getActor(SceneManager.Actor.lumberjack);
 			lj.SetActive(true);

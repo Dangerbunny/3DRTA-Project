@@ -16,15 +16,15 @@ public class ElderController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		float distance = Vector3.Distance(path_corners[currentPath].position, transform.position);
-		if (distance <= 5f) {
-			if(currentPath == path_corners.Length - 1){
-				gameObject.SetActive(false);
-				return;
-			}
-			currentPath++;
-		}
-		agent.SetDestination(path_corners[currentPath].position);
+//		float distance = Vector3.Distance(path_corners[currentPath].position, transform.position);
+//		if (distance <= 5f) {
+//			if(currentPath == path_corners.Length - 1){
+//				gameObject.SetActive(false);
+//				return;
+//			}
+//			currentPath++;
+//		}
+//		agent.SetDestination(path_corners[currentPath].position);
 
 	}
 

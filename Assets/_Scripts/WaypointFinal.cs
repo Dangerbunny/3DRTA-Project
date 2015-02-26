@@ -14,7 +14,10 @@ public class WaypointFinal : Waypoint {
 		switch (effect) {
 		case 0:
 			SceneManager manager = GameObject.Find("Ultimate Overlord").GetComponent<SceneManager>();
-			other.transform.gameObject.GetComponentInChildren<LumberjackController>().setSpeed(0);
+			
+			LumberjackController ljC= other.transform.gameObject.GetComponentInChildren<LumberjackController>();
+			if(ljC != null)
+				ljC.setSpeed(0);
 			manager.nextCamera();
 			break;
 		}

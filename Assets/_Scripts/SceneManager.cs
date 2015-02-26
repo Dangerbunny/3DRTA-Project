@@ -56,10 +56,10 @@ public class SceneManager : MonoBehaviour {
 	}
 
 	public void playMusic(string mName){
-		SoundManager.PlayConnection (mName);
+
 	}
 	public void playSFX(string eName){
-		SoundManager.PlaySFX (eName);
+		GetComponent<AudioSource>().Play();
 	}
 
 	public void nextCamera(){

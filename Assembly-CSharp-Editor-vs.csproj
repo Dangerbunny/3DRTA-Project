@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_4_6_1;UNITY_4_6;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_4_6_3;UNITY_4_6;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_IL2CPP;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;UNITY5_SCRIPTING_IN_UNITY4;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_MONO;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -46,25 +46,64 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\SoundManagerPro\Editor\AudioSourceProEditor.cs" />
-     <Compile Include="Assets\SoundManagerPro\Editor\SMPAutorun.cs" />
-     <Compile Include="Assets\SoundManagerPro\Editor\SMPMenuItems.cs" />
-     <Compile Include="Assets\SoundManagerPro\Editor\SMProHierarchyIcon.cs" />
-     <Compile Include="Assets\SoundManagerPro\Editor\SoundFXManagerEditor.cs" />
-     <Compile Include="Assets\SoundManagerPro\Editor\SoundManagerEditor.cs" />
-     <Compile Include="Assets\SoundManagerPro\Editor\SoundManagerEditorTools.cs" />
-     <Compile Include="Assets\SoundManagerPro\Editor\SoundPocketEditor.cs" />
+     <Compile Include="Assets\DarkTonic\Editor\UndoHelper.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Editor\AudioEventInspector.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Editor\ButtonClickerInspector.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Editor\DTGUIHelper.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Editor\DynamicGroupVariationInspector.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Editor\DynamicSoundGroupCreatorInspector.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Editor\DynamicSoundGroupInspector.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Editor\FootstepsSoundsInspector.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Editor\MasterAudioClipManager.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Editor\MasterAudioGroupInspector.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Editor\MasterAudioHierIcon.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Editor\MasterAudioInspector.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Editor\MasterAudioInspectorResources.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Editor\MasterAudioManager.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Editor\MasterAudioSoundUpgrader.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Editor\PersistChanges\MAComponentPatch.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Editor\PersistChanges\MAGOSetting.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Editor\PersistChanges\MAObjectContext.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Editor\PlaylistControllerInspector.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Editor\SoundGroupOrganizerInspector.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Editor\SoundGroupPropertyDrawer.cs" />
+     <Compile Include="Assets\DarkTonic\MasterAudio\Editor\SoundGroupVariationInspector.cs" />
+     <Compile Include="Assets\RAIN\Editor\ScriptTemplates\ActionTemplate_CS.cs" />
+     <Compile Include="Assets\RAIN\Editor\ScriptTemplates\DecisionTemplate_CS.cs" />
+     <None Include="Assets\RAIN\Editor\Shaders\AspectSphereShader.shader" />
+     <None Include="Assets\RAIN\Editor\Shaders\VisualSensorLineShader.shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Movement\Mobility_Free_Unity_Info.txt" />
+     <None Include="Assets\RAIN\Editor\Shaders\NavMeshContourShader.shader" />
+     <None Include="Assets\RAIN\Editor\Shaders\WaypointShader.shader" />
+     <None Include="Assets\DarkTonic\MasterAudio\ReleaseNotes.txt" />
+     <None Include="Assets\RAIN\Editor\ScriptTemplates\BehaviorTreeTemplate.xml" />
      <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
+     <None Include="Assets\RAIN\Editor\Shaders\VisualSensorRingShader.shader" />
+     <None Include="Assets\RAIN\ReleaseNotes.txt" />
+     <None Include="Assets\RAIN\Editor\Shaders\AspectRingShader.shader" />
+     <None Include="Assets\RAIN\Editor\Shaders\NavMeshColliderShader.shader" />
+     <None Include="Assets\DarkTonic\MasterAudio\audioImportSettings.xml" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>C:/Users/Ray/Documents/ABUCLA/188, Computer Science/Project/3DRTA-Project/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.3/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/Editor/UnityEditor.UI.dll</HintPath>
+ <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.3/Editor/UnityEditor.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="RAIN">
+ <HintPath>C:/Users/Ray/Documents/ABUCLA/188, Computer Science/Project/3DRTA-Project/Assets/RAIN/RAIN.dll</HintPath>
+ </Reference>
+ <Reference Include="RAINMetaform">
+ <HintPath>C:/Users/Ray/Documents/ABUCLA/188, Computer Science/Project/3DRTA-Project/Assets/RAIN/RAINMetaform.dll</HintPath>
+ </Reference>
+ <Reference Include="RAINEditor">
+ <HintPath>C:/Users/Ray/Documents/ABUCLA/188, Computer Science/Project/3DRTA-Project/Assets/RAIN/Editor/RAINEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="RAINMetaformEditor">
+ <HintPath>C:/Users/Ray/Documents/ABUCLA/188, Computer Science/Project/3DRTA-Project/Assets/RAIN/Editor/RAINMetaformEditor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
