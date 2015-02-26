@@ -8,7 +8,7 @@ public class SceneManager : MonoBehaviour {
 
 	public Dictionary<Actor, GameObject> actors;
 	
-	 CameraManager cameraManager;
+	CameraManager cameraManager;
 
 	public enum Actor{
 		elder,
@@ -55,6 +55,12 @@ public class SceneManager : MonoBehaviour {
 		return sceneNumber;
 	}
 
+	public void playMusic(string mName){
+		SoundManager.PlayConnection (mName);
+	}
+	public void playSFX(string eName){
+		SoundManager.PlaySFX (eName);
+	}
 
 	public void nextCamera(){
 		cameraManager.nextCamera ();
