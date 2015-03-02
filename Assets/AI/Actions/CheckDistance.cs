@@ -30,7 +30,6 @@ public class CheckDistance : RAINDecision
 
 		if (Target.IsValid && Target.IsVariable)
 		{
-			Debug.Log("MADE IT");
 			MoveLookTarget tTarget = MoveLookTarget.GetTargetFromVariable(ai.WorkingMemory, Target.VariableName);
 			float tDistance = (tTarget.Position - ai.Kinematic.Position).magnitude;
 			

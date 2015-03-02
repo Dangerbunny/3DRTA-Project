@@ -53,6 +53,7 @@ public class AnimationEvent : MonoBehaviour {
 			ljGO.GetComponent<MouseLook>().enabled = true;
 			ljGO.GetComponent<FPSInputController>().enabled = true;
 			sceneManager.nextCamera();
+			sceneManager.getActor(SceneManager.Actor.wolf).GetComponent<WolfController>().setFocus(ljGO);
 			break;
 		}
 		

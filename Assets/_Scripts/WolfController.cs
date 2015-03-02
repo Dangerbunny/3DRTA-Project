@@ -78,19 +78,19 @@ public class WolfController : MonoBehaviour {
 				distance = Vector3.Distance (focus.transform.position, transform.position);
 
 				if(distance < 30f){
-					bool attacking = animator.GetCurrentAnimatorStateInfo(0).IsName("Attacking");
-					if(focus.name == "lumberjack" && !attacking){
-						animator.SetBool("Moving", true);
-//						agent.SetDestination(focus.transform.position);
-						Vector3 dir = (focus.transform.position - transform.position).normalized;
-						dir.y = 0;
-						transform.forward = Vector3.Lerp(transform.forward, dir, rotationSpeed * Time.deltaTime);
-						controller.SimpleMove(transform.forward * speed * Time.deltaTime);
-						print ("Movement: " + (transform.forward * speed * Time.deltaTime));
-						if(distance < 5f){
-							animator.SetTrigger("Attack");
-						}
-					}
+//					bool attacking = animator.GetCurrentAnimatorStateInfo(0).IsName("Attacking");
+//					if(focus.name == "lumberjack" && !attacking){
+//						animator.SetBool("Moving", true);
+////						agent.SetDestination(focus.transform.position);
+//						Vector3 dir = (focus.transform.position - transform.position).normalized;
+//						dir.y = 0;
+//						transform.forward = Vector3.Lerp(transform.forward, dir, rotationSpeed * Time.deltaTime);
+//						controller.SimpleMove(transform.forward * speed * Time.deltaTime);
+//						print ("Movement: " + (transform.forward * speed * Time.deltaTime));
+//						if(distance < 5f){
+//							animator.SetTrigger("Attack");
+//						}
+//					}
 				}
 				else if(distance < 40f){
 					if(focus.name != "lumberjack"){
@@ -139,9 +139,16 @@ public class WolfController : MonoBehaviour {
 //		agent.enabled = true;
 	}
 
+	public bool isAlive(){
+		return alive;
+	}
 
-	public void takeDamage(){	
-		if (immuneTimer >= immunePeriod && focus.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Attacking")) {
+	public void setFocus(GameObject f){
+		focus = f;
+	}
+
+	public void takeDamage(){
+		if (immuneTimer >= immunePeriod && focus.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(1).IsName("Attacking")) {
 			anger++;
 			if(anger <= 3){
 				Vector3 endScale = transform.localScale * 1.2f;

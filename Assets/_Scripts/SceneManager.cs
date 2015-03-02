@@ -36,7 +36,7 @@ public class SceneManager : MonoBehaviour {
 			actors.Add(Actor.boy, GameObject.Find("boy"));
 			actors.Add(Actor.lumberjack, GameObject.Find("lumberjack"));
 			actors.Add(Actor.dog, GameObject.Find("dog"));
-			actors.Add(Actor.wolf, GameObject.Find("wolf"));
+			actors.Add(Actor.wolf, GameObject.Find("WOLF"));
 			
 			disableActor(Actor.elder);
 			disableActor(Actor.boy);

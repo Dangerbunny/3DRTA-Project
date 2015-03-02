@@ -20,16 +20,15 @@ public class isDead : RAINDecision
     {
         ActionResult tResult = ActionResult.FAILURE;
 		WolfController wc = ai.Body.GetComponent<WolfController> ();
-
-		tResult = wc.isAlive () ? ActionResult.SUCCESS : ActionResult.FAILURE;
-
-        for (; _lastRunning < _children.Count; _lastRunning++)
-        {
-            tResult = _children[_lastRunning].Run(ai);
-            if (tResult != ActionResult.SUCCESS)
-                break;
-        }
-
+		tResult = wc.isAlive () ? ActionResult.FAILURE : ActionResult.SUCCESS;
+		if(!wc.isAlive()){
+	        for (; _lastRunning < _children.Count; _lastRunning++)
+	        {
+	            tResult = _children[_lastRunning].Run(ai);
+	            if (tResult != ActionResult.SUCCESS)
+	                break;
+	        }
+		}
         return tResult;
     }
 
