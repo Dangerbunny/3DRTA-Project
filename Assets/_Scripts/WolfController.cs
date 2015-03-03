@@ -67,8 +67,8 @@ public class WolfController : MonoBehaviour {
 			}
 			break;
 		case 3:
-			if(Input.GetKeyDown(KeyCode.KeypadEnter)){
-				AddImpact(-transform.forward + new Vector3(0,20f,0), impactForce);
+			if(Input.GetKeyDown(KeyCode.KeypadEnter)){				
+				AddImpact(-transform.forward + new Vector3(0,0.3F,0), impactForce);
 			}
 			if(alive){
 				if (impact.magnitude > 0.2F) controller.Move(impact * Time.deltaTime);
@@ -154,10 +154,7 @@ public class WolfController : MonoBehaviour {
 				Vector3 endScale = transform.localScale * 1.2f;
 				StartCoroutine(enrage(endScale));
 				audio.Play();
-//				agent.enabled = false;
-//				print ("RIGIDBODY: " + GetComponent<Rigidbody>() + " and adding force: " + (-transform.forward + new Vector3(0,2f,0)));
-//				GetComponent<Rigidbody>().AddForce(125*(-transform.forward + new Vector3(0,2f,0)));
-				AddImpact(-transform.forward, impactForce);
+				AddImpact(-transform.forward + new Vector3(0,0.3F,0), impactForce);
 			}
 			if (--hits == 0) {
 					alive = false;
