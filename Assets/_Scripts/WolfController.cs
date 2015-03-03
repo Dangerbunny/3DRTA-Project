@@ -21,10 +21,6 @@ public class WolfController : MonoBehaviour {
 	int hits = 4, anger = 0;
 	Vector3 impact = Vector3.zero;
 	float mass = 3.0F; // defines the character mass
-	
-	
-//	NavMeshAgent agent;
-
 	float immuneTimer = 0, immunePeriod = 1.2f;
 
 	AudioSource audio;
@@ -44,8 +40,6 @@ public class WolfController : MonoBehaviour {
 			break;
 		case 3:
 			controller = GetComponent<CharacterController>();
-//			agent = GetComponent<NavMeshAgent>();
-
 			focus = sceneManager.getActor(SceneManager.Actor.elder);
 			print ("Wolf: Talking with dog, waiting for lumberjack");
 			break;
@@ -69,6 +63,7 @@ public class WolfController : MonoBehaviour {
 		case 3:
 			if(Input.GetKeyDown(KeyCode.KeypadEnter)){				
 				AddImpact(-transform.forward + new Vector3(0,0.3F,0), impactForce);
+				StartCoroutine(enrage());
 			}
 			if(alive){
 				if (impact.magnitude > 0.2F) controller.Move(impact * Time.deltaTime);
@@ -78,6 +73,9 @@ public class WolfController : MonoBehaviour {
 				distance = Vector3.Distance (focus.transform.position, transform.position);
 
 				if(distance < 30f){
+					/**
+					 * Pre RAIN legacy AI code
+					 **/
 //					bool attacking = animator.GetCurrentAnimatorStateInfo(0).IsName("Attacking");
 //					if(focus.name == "lumberjack" && !attacking){
 //						animator.SetBool("Moving", true);
@@ -102,10 +100,6 @@ public class WolfController : MonoBehaviour {
 						}
 						else if(focus.name == "boy"){
 							print ("Dog: That's not him either");
-//							sceneManager.nextCamera();
-//							sceneManager.enableActor(SceneManager.Actor.lumberjack);
-//							focus = sceneManager.getActor(SceneManager.Actor.lumberjack);
-							//---------------------------------------------------------------------------------
 						}
 						
 					} else{
@@ -127,10 +121,30 @@ public class WolfController : MonoBehaviour {
 		impact += dir.normalized * force / mass;
 	}
 
-	IEnumerator enrage(Vector3 endScale){
+	IEnumerator enrage(){
+
+		audio.Play();
+
 		const int scaleFactor = 5;
+		Vector3 endScale = transform.localScale * 1.2f;
+		Light[] lights = GetComponentsInChildren<Light> ();
+		float[] intensities = new float[lights.Length];
+		Color[] endColors = new Color[lights.Length];
+		
+		for(int i = 0; i < lights.Length; i++){
+			endColors[i] = lights[i].color + new Color (0.35f, 0, 0);
+			intensities[i] = lights[i].intensity * 0.75f;
+		}
+
+		yield return new WaitForSeconds (0.75f); //Wait for knockback before enraging
+
+
 		while (endScale.magnitude - transform.localScale.magnitude > 0.0001f) {
 			transform.localScale = Vector3.Lerp (transform.localScale, endScale, Time.deltaTime*scaleFactor);
+			for(int i = 0; i < lights.Length; i++){
+				lights[i].color = Color.Lerp(lights[i].color, endColors[i] , Time.deltaTime*scaleFactor);
+				lights[i].intensity = Mathf.Lerp(lights[i].intensity, intensities[i], Time.deltaTime*scaleFactor);
+			}
 			yield return new WaitForSeconds(0);
 		}
 	}
@@ -151,10 +165,8 @@ public class WolfController : MonoBehaviour {
 		if (immuneTimer >= immunePeriod && focus.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(1).IsName("Attacking")) {
 			anger++;
 			if(anger <= 3){
-				Vector3 endScale = transform.localScale * 1.2f;
-				StartCoroutine(enrage(endScale));
-				audio.Play();
 				AddImpact(-transform.forward + new Vector3(0,0.3F,0), impactForce);
+				StartCoroutine(enrage());
 			}
 			if (--hits == 0) {
 					alive = false;
