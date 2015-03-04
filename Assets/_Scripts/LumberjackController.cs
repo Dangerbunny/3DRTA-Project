@@ -73,6 +73,13 @@ public class LumberjackController : MonoBehaviour {
 				}
 			}
 			break;
+		case 4:
+
+			bool attack = Input.GetMouseButtonDown(0);
+			print ("FOOO, attack: " + attack);
+			if(attack)
+				animator.SetTrigger("Attack");
+			break;
 		}
 	}
 

@@ -92,7 +92,11 @@
      <Compile Include="Assets\_Scripts\ElderController.cs" />
      <Compile Include="Assets\_Scripts\ExtendedFPSController.cs" />
      <Compile Include="Assets\_Scripts\HideMouse.cs" />
+     <Compile Include="Assets\_Scripts\LevelScripts\ControlsTutorial.cs" />
+     <Compile Include="Assets\_Scripts\LevelScripts\HintManagement.cs" />
+     <Compile Include="Assets\_Scripts\LevelScripts\ThirdPersonOrbitCam.cs" />
      <Compile Include="Assets\_Scripts\LumberjackController.cs" />
+     <Compile Include="Assets\_Scripts\PlayerControl.cs" />
      <Compile Include="Assets\_Scripts\PositionLerper.cs" />
      <Compile Include="Assets\_Scripts\SceneManager.cs" />
      <Compile Include="Assets\_Scripts\SceneTransition.cs" />
@@ -119,6 +123,7 @@
      <None Include="Assets\RAIN\Editor\Shaders\AspectRingShader.shader" />
      <None Include="Assets\RAIN\Editor\Shaders\NavMeshColliderShader.shader" />
      <None Include="Assets\DarkTonic\MasterAudio\audioImportSettings.xml" />
+     <None Include="Assets\readme.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>C:/Users/Ray/Documents/ABUCLA/188, Computer Science/Project/3DRTA-Project/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>

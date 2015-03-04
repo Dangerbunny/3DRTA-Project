@@ -85,6 +85,7 @@
      <None Include="Assets\RAIN\Editor\Shaders\AspectRingShader.shader" />
      <None Include="Assets\RAIN\Editor\Shaders\NavMeshColliderShader.shader" />
      <None Include="Assets\DarkTonic\MasterAudio\audioImportSettings.xml" />
+     <None Include="Assets\readme.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>C:/Users/Ray/Documents/ABUCLA/188, Computer Science/Project/3DRTA-Project/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>

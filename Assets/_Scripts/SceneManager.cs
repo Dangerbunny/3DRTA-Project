@@ -42,6 +42,8 @@ public class SceneManager : MonoBehaviour {
 			disableActor(Actor.boy);
 			disableActor(Actor.lumberjack);
 			break;
+		case 4:
+			break;
 		}
 	}
 	
