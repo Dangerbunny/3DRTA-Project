@@ -36,12 +36,12 @@ public class WolfController : MonoBehaviour {
 		switch (sceneNumber) {
 		case 2:
 			focus = sceneManager.getActor(SceneManager.Actor.dog);
-			print("Wolf: Howling");
+//			print("Wolf: Howling");
 			break;
 		case 3:
 			controller = GetComponent<CharacterController>();
 			focus = sceneManager.getActor(SceneManager.Actor.elder);
-			print ("Wolf: Talking with dog, waiting for lumberjack");
+//			print ("Wolf: Talking with dog, waiting for lumberjack");
 			break;
 		}
 	}
@@ -54,7 +54,7 @@ public class WolfController : MonoBehaviour {
 		case 2:
 			distance = Vector3.Distance (focus.transform.position, transform.position);
 			if(distance < 10f){
-				print("Wolf: Talking to dog");
+//				print("Wolf: Talking to dog");
 				Vector3 dir = (focus.transform.position - transform.position).normalized;
 				dir.y = 0;
 				transform.forward = Vector3.Lerp(transform.forward, dir, rotationSpeed * Time.deltaTime);
@@ -93,18 +93,18 @@ public class WolfController : MonoBehaviour {
 				else if(distance < 40f){
 					if(focus.name != "lumberjack"){
 						if(focus.name == "elder"){
-							print("Dog: Tells wolf that's not him");
+//							print("Dog: Tells wolf that's not him");
 							sceneManager.enableActor(SceneManager.Actor.boy);
 							sceneManager.nextCamera();
 							focus = sceneManager.getActor(SceneManager.Actor.boy);
 						}
 						else if(focus.name == "boy"){
-							print ("Dog: That's not him either");
+//							print ("Dog: That's not him either");
 						}
 						
 					} else{
-						print ("Dog: Howls to get lumberjack's attention");
-						print("Lumberjack: Goes to investigate");
+//						print ("Dog: Howls to get lumberjack's attention");
+//						print("Lumberjack: Goes to investigate");
 					}
 				}
 			}

@@ -46,10 +46,10 @@ public class DogController : MonoBehaviour {
 			awake = true;
 
 //			wpChain.setStart(Time.time, transform);
-			print ("Dog: Hears Wolf's Howl");
+//			print ("Dog: Hears Wolf's Howl");
 			animator.SetInteger("Speed", 1);
 			sceneManager.nextCamera();
-			print ("Dog: Resents wolf, decides to do something about it");
+//			print ("Dog: Resents wolf, decides to do something about it");
 
 
 			break;
@@ -96,7 +96,7 @@ public class DogController : MonoBehaviour {
 			}
 			break;
 		case 3:
-			print ("Dog: Waiting for lumberjack");
+//			print ("Dog: Waiting for lumberjack");
 			break;
 		}
 	}

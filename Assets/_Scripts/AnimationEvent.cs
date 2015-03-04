@@ -37,21 +37,19 @@ public class AnimationEvent : MonoBehaviour {
 			sceneSwoop.GetComponent<Animator>().SetTrigger("Go");
 			break;
 		case sc3_ljEntrance:
-//			sceneManager.playMusic("Survivor - Eye Of The Tiger");
-			sceneManager.playSFX ("");
 			sceneManager.nextCamera();
 			GameObject lj = sceneManager.getActor(SceneManager.Actor.lumberjack);
 			lj.SetActive(true);
-			lj.GetComponent<MouseLook>().enabled = false;
-			lj.GetComponent<FPSInputController>().enabled = false;
+			lj.GetComponent<PlayerControl>().enabled = false;
+//			lj.GetComponent<FPSInputController>().enabled = false;
 
 			break;
 		case sc3_ljControllable:
 			GameObject ljGO = sceneManager.getActor(SceneManager.Actor.lumberjack);
-			ljGO.GetComponentInChildren<LumberjackController>().setSpeed(0);
-			ljGO.GetComponentInChildren<LumberjackController>().setControllable(true);
-			ljGO.GetComponent<MouseLook>().enabled = true;
-			ljGO.GetComponent<FPSInputController>().enabled = true;
+//			ljGO.GetComponentInChildren<LumberjackController>().setSpeed(0);
+			ljGO.GetComponent<LumberjackController>().setControllable(true);
+			ljGO.GetComponent<PlayerControl>().enabled = true;
+//			ljGO.GetComponent<FPSInputController>().enabled = true;
 			sceneManager.nextCamera();
 			sceneManager.getActor(SceneManager.Actor.wolf).GetComponent<WolfController>().setFocus(ljGO);
 			break;

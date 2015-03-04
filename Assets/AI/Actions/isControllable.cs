@@ -5,7 +5,7 @@ using RAIN.Action;
 using RAIN.Core;
 
 [RAINDecision]
-public class isDead : RAINDecision
+public class isControllable : RAINDecision
 {
     private int _lastRunning = 0;
 
@@ -19,15 +19,22 @@ public class isDead : RAINDecision
     public override ActionResult Execute(RAIN.Core.AI ai)
     {
         ActionResult tResult = ActionResult.FAILURE;
-		WolfController wc = ai.Body.GetComponent<WolfController> ();
-		tResult = (wc.isAlive () == false) ? ActionResult.SUCCESS : ActionResult.FAILURE;
-		if(!wc.isAlive()){
-	        for (; _lastRunning < _children.Count; _lastRunning++)
-	        {
-	            tResult = _children[_lastRunning].Run(ai);
-	            if (tResult != ActionResult.SUCCESS)
-	                break;
-	        }
+
+		LumberjackController ljc = ai.Body.GetComponent<LumberjackController> ();
+
+		bool res = ljc.isControllable ();
+
+		tResult = (res == false) ? ActionResult.SUCCESS : ActionResult.FAILURE;
+
+		Debug.Log ("CONTROLLABLE: " + res);
+
+		if(!res){
+			for (; _lastRunning < _children.Count; _lastRunning++)
+			{
+			    tResult = _children[_lastRunning].Run(ai);
+			    if (tResult != ActionResult.SUCCESS)
+			        break;
+			}
 		}
         return tResult;
     }

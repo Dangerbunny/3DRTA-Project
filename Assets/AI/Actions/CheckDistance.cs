@@ -25,9 +25,7 @@ public class CheckDistance : RAINDecision
 	public override ActionResult Execute(RAIN.Core.AI ai)
 	{
 		ActionResult tResult = ActionResult.RUNNING;
-
-		Debug.Log ("Target:" + Target);
-
+		
 		if (Target.IsValid && Target.IsVariable)
 		{
 			MoveLookTarget tTarget = MoveLookTarget.GetTargetFromVariable(ai.WorkingMemory, Target.VariableName);

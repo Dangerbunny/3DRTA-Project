@@ -19,6 +19,7 @@ public class CameraManager : MonoBehaviour {
 	public void nextCamera(){
 		cameras[camIndex].SetActive(false);
 		camIndex++;
+		print ("Advancing camera to: " + camIndex);
 		cameras[camIndex].SetActive(true);
 	}
 }
