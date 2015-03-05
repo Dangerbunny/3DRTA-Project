@@ -25,9 +25,7 @@ public class isControllable : RAINDecision
 		bool res = ljc.isControllable ();
 
 		tResult = (res == false) ? ActionResult.SUCCESS : ActionResult.FAILURE;
-
-		Debug.Log ("CONTROLLABLE: " + res);
-
+		
 		if(!res){
 			for (; _lastRunning < _children.Count; _lastRunning++)
 			{
@@ -35,6 +33,9 @@ public class isControllable : RAINDecision
 			    if (tResult != ActionResult.SUCCESS)
 			        break;
 			}
+		} else{
+			Debug.Log("Setting speed1......");
+			ai.Body.GetComponent<Animator>().SetInteger("Speed1", 0);
 		}
         return tResult;
     }
