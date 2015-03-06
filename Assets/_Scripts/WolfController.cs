@@ -23,6 +23,8 @@ public class WolfController : MonoBehaviour {
 	float mass = 3.0F; // defines the character mass
 	float immuneTimer = 0, immunePeriod = 1.2f;
 
+	const int ljAttackLayerNum = 2;
+
 	AudioSource audio;
 
 	CharacterController controller;
@@ -162,7 +164,8 @@ public class WolfController : MonoBehaviour {
 	}
 
 	public void takeDamage(){
-		if (immuneTimer >= immunePeriod && focus.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(1).IsName("Attacking")) {
+//		Debug.Log ("ATTACKING: " + focus.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (1).IsName ("Attacking"));
+		if (immuneTimer >= immunePeriod && focus.GetComponent<Animator>().GetCurrentAnimatorStateInfo(ljAttackLayerNum).IsName("Attacking")) {
 			anger++;
 			if(anger <= 3){
 				AddImpact(-transform.forward + new Vector3(0,0.3F,0), impactForce);
