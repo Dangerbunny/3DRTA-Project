@@ -33,9 +33,6 @@ public class isControllable : RAINDecision
 			    if (tResult != ActionResult.SUCCESS)
 			        break;
 			}
-		} else{
-			Debug.Log("Setting speed1......");
-			ai.Body.GetComponent<Animator>().SetInteger("Speed1", 0);
 		}
         return tResult;
     }

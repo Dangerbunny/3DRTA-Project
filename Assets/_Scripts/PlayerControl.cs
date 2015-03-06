@@ -24,6 +24,9 @@ public class PlayerControl : MonoBehaviour
 
 	private Animator anim;
 	private int speedFloat;
+
+	private int speedInt;
+
 	private int jumpBool;
 	private int hFloat;
 	private int vFloat;
@@ -53,6 +56,7 @@ public class PlayerControl : MonoBehaviour
 		cameraTransform = Camera.main.transform;
 
 		speedFloat = Animator.StringToHash("Speed");
+		speedInt = Animator.StringToHash("Speed 1");
 		jumpBool = Animator.StringToHash("Jump");
 		hFloat = Animator.StringToHash("H");
 		vFloat = Animator.StringToHash("V");
@@ -146,12 +150,15 @@ public class PlayerControl : MonoBehaviour
 				speed = walkSpeed;
 			}
 
+			anim.SetInteger("Speed1", 1);
 			anim.SetFloat(speedFloat, speed, speedDampTime, Time.deltaTime);
 		}
 		else
 		{
 			speed = 0f;
 			anim.SetFloat(speedFloat, 0f);
+			anim.SetInteger("Speed1", 0);
+			
 		}
 		rigidbody.AddForce(Vector3.forward*speed);
 	}
