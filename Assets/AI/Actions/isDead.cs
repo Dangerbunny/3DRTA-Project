@@ -21,6 +21,8 @@ public class isDead : RAINDecision
         ActionResult tResult = ActionResult.FAILURE;
 		WolfController wc = ai.Body.GetComponent<WolfController> ();
 		tResult = (wc.isAlive () == false) ? ActionResult.SUCCESS : ActionResult.FAILURE;
+		Debug.Log("Alive: " + wc.isAlive());
+		
 		if(!wc.isAlive()){
 	        for (; _lastRunning < _children.Count; _lastRunning++)
 	        {
@@ -28,6 +30,9 @@ public class isDead : RAINDecision
 	            if (tResult != ActionResult.SUCCESS)
 	                break;
 	        }
+		} else{
+			Debug.Log("Health: " + wc.getHealth());
+			ai.WorkingMemory.SetItem("health", wc.getHealth());
 		}
         return tResult;
     }

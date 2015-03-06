@@ -163,6 +163,10 @@ public class WolfController : MonoBehaviour {
 		focus = f;
 	}
 
+	public int getHealth(){
+		return hits;
+	}
+
 	public void takeDamage(){
 //		Debug.Log ("ATTACKING: " + focus.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (1).IsName ("Attacking"));
 		if (immuneTimer >= immunePeriod && focus.GetComponent<Animator>().GetCurrentAnimatorStateInfo(ljAttackLayerNum).IsName("Attacking")) {

@@ -33,7 +33,7 @@ public class PlayerControl : MonoBehaviour
 	private int aimBool;
 	private int flyBool;
 	private int groundedBool;
-	private Transform cameraTransform;
+	public Transform cameraTransform;
 
 	private float h;
 	private float v;
@@ -53,7 +53,7 @@ public class PlayerControl : MonoBehaviour
 	void Awake()
 	{
 		anim = GetComponent<Animator> ();
-		cameraTransform = Camera.main.transform;
+//		cameraTransform = Camera.main.transform;
 
 		speedFloat = Animator.StringToHash("Speed");
 		speedInt = Animator.StringToHash("Speed 1");
@@ -139,7 +139,7 @@ public class PlayerControl : MonoBehaviour
 		{
 			if(sprinting)
 			{
-				speed = sprintSpeed;
+				speed = runSpeed;//sprintSpeed;
 			}
 			else if (running)
 			{
@@ -159,7 +159,7 @@ public class PlayerControl : MonoBehaviour
 			anim.SetFloat(speedFloat, 0f);
 			anim.SetInteger("Speed1", 0);
 			
-		}
+		}		
 		rigidbody.AddForce(Vector3.forward*speed);
 	}
 
@@ -203,7 +203,7 @@ public class PlayerControl : MonoBehaviour
 		{
 			Repositioning();
 		}
-
+		
 		return targetDirection;
 	}	
 
