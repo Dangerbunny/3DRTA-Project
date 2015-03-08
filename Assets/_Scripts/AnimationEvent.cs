@@ -5,19 +5,29 @@ public class AnimationEvent : MonoBehaviour {
 
 	public SceneManager sceneManager;
 
-	const int //Types of events
+	/**
+	 * This enum is just to help me remember which event is which 
+	 */
+	const int
 		next = 0,
 		sc3_elder = 1,
 		sc2_dogControllable = 2,
 		sc3_swoop = 3,
 		sc3_ljEntrance = 4,
-		sc3_ljControllable = 5;
+		sc3_ljControllable = 5,
+		sc1_woflHowl1 = 6,
+		sc1_wolfHowl2 = 7,
+		sc1_ljNotice = 8,
+		nextAndRetain = 9;
 
 
 	void fireEvent(int eventIndex){
 		switch (eventIndex) {
 		case next:
 			sceneManager.nextCamera();
+			break;
+		case nextAndRetain:
+			sceneManager.nextCameraAndRetain();
 			break;
 		case sc3_elder:
 			sceneManager.enableActor(SceneManager.Actor.elder);
@@ -52,6 +62,18 @@ public class AnimationEvent : MonoBehaviour {
 //			ljGO.GetComponent<FPSInputController>().enabled = true;
 			sceneManager.nextCamera();
 			sceneManager.getActor(SceneManager.Actor.wolf).GetComponent<WolfController>().setFocus(ljGO);
+			break;
+		case sc1_woflHowl1:
+			MasterAudio.TriggerNextPlaylistClip();
+			MasterAudio.FireCustomEvent("Howl", new Vector3(10.13506f, 8.539352f, 16.24728f));
+			break;
+		case sc1_wolfHowl2:
+			MasterAudio.FireCustomEvent("Howl", new Vector3(10.13506f, 8.539352f, 16.24728f));
+			break;
+		case sc1_ljNotice:
+			sceneManager.getActor(SceneManager.Actor.lumberjack).GetComponent<LumberjackController>().setFocus(
+				sceneManager.getActor(SceneManager.Actor.dog));
+			MasterAudio.FireCustomEvent("LJDialogue", sceneManager.getActor(SceneManager.Actor.lumberjack).transform.position);
 			break;
 		}
 		

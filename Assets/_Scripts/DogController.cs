@@ -36,21 +36,29 @@ public class DogController : MonoBehaviour {
 			controllable = false;
 			animator.SetBool("Asleep", true);
 
-			yield return new WaitForSeconds (16.6f);
+			const float howlDuration = 4.5f;
+			const float speech1Duration = 9.5f;
+			const float speech2Duration = 4.1f;
 
-			//Inner dialogue
+			/**
+			 * Waiting for:
+			 * 1. First howl to finish,
+			 * 2. First speech (while on ground) to finish,
+			 * 3. Second howl to finish 
+			 */
+			yield return new WaitForSeconds (16.6f+howlDuration+speech1Duration+howlDuration);
+
+			//Makes decision and gets up
 			animator.SetBool("Asleep", false);
+			sceneManager.nextCamera();
 
-			yield return new WaitForSeconds (4);
+			//Narrates decision
+			yield return new WaitForSeconds (speech2Duration);
 
 			awake = true;
 
-//			wpChain.setStart(Time.time, transform);
-//			print ("Dog: Hears Wolf's Howl");
 			animator.SetInteger("Speed", 1);
 			sceneManager.nextCamera();
-//			print ("Dog: Resents wolf, decides to do something about it");
-
 
 			break;
 		case 2:

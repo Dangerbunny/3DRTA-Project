@@ -22,4 +22,11 @@ public class CameraManager : MonoBehaviour {
 		print ("Advancing camera to: " + camIndex);
 		cameras[camIndex].SetActive(true);
 	}
+
+	public void nextCameraAndRetain(){
+		cameras[camIndex].GetComponent<Camera>().enabled = false;
+		camIndex++;
+		print ("Advancing camera to: " + camIndex);
+		cameras[camIndex].SetActive(true);
+	}
 }

@@ -68,6 +68,10 @@ public class SceneManager : MonoBehaviour {
 		cameraManager.nextCamera ();
 	}
 
+	public void nextCameraAndRetain(){
+		cameraManager.nextCameraAndRetain ();
+	}
+
 	public void enableActor(Actor a){
 //		Debug.Log ("Enabling: " + a);
 		actors [a].SetActive (true);

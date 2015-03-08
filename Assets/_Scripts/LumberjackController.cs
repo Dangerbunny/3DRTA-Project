@@ -20,7 +20,6 @@ public class LumberjackController : MonoBehaviour {
 		animator = GetComponent<Animator>();
 		switch (sceneNumber) {
 		case 1:
-			focus = sceneManager.getActor(SceneManager.Actor.dog);
 			yield return new WaitForSeconds(5.9f);
 			animator.SetTrigger("SitDown");
 			break;
@@ -34,8 +33,10 @@ public class LumberjackController : MonoBehaviour {
 	void Update () {
 		switch (sceneNumber) {
 		case 1:
-			float distance = Vector3.Distance (focus.transform.position, transform.position);
-			if(distance > 32.5f && distance < 40f){
+//			float distance = Vector3.Distance (focus.transform.position, transform.position);
+//			if(distance > 32.5f && distance < 40f){
+			if(focus != null){
+
 				animator.SetTrigger("GetUp");
 				Vector3 dir = (focus.transform.position - transform.position).normalized;
 				dir.y = 0;
@@ -44,42 +45,17 @@ public class LumberjackController : MonoBehaviour {
 			break;
 		case 3:
 			if(controllable){
-//				float move = Input.GetAxisRaw("Vertical");
-//				bool sprint = Input.GetKey(KeyCode.LeftShift);
-//				if(move != 0){
-//					if(sprint)
-//						animator.SetInteger("Speed", 2);
-//					else
-//						animator.SetInteger("Speed", 1);
-//				}
-//				else
-//					animator.SetInteger("Speed", 0);
-
 				bool attack = Input.GetMouseButtonDown(0);
 				if(attack)
 					animator.SetTrigger("Attack");
-			} else{
-//				if(autonomousSpeed > 0){
-//					animator.SetInteger("Speed", 1);
-//					Transform parentT = transform.parent.transform;
-//					Vector3 dir = (wpChain.currentPoint().position - parentT.position).normalized;
-//					dir.y = 0;
-//					parentT.forward = Vector3.Lerp(parentT.forward, dir, rotationSpeed * Time.deltaTime);
-//					controller.SimpleMove(transform.forward * autonomousSpeed * Time.deltaTime);
-//				} else {
-//					animator.SetInteger("Speed", 0);
-//				}
 			}
-			break;
-		case 4:
-
-			bool attacking = Input.GetMouseButtonDown(0);
-			if(attacking)
-				animator.SetTrigger("Attack");
 			break;
 		}
 	}
 
+	public void setFocus(GameObject focus){
+		this.focus = focus;
+	}
 	public void setSpeed(float speed){
 		autonomousSpeed = speed;
 	}
