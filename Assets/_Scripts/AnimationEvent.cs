@@ -18,7 +18,8 @@ public class AnimationEvent : MonoBehaviour {
 		sc1_woflHowl1 = 6,
 		sc1_wolfHowl2 = 7,
 		sc1_ljNotice = 8,
-		nextAndRetain = 9;
+		nextAndRetain = 9,
+		sc2_howl = 10;
 
 
 	void fireEvent(int eventIndex){
@@ -74,6 +75,9 @@ public class AnimationEvent : MonoBehaviour {
 			sceneManager.getActor(SceneManager.Actor.lumberjack).GetComponent<LumberjackController>().setFocus(
 				sceneManager.getActor(SceneManager.Actor.dog));
 			MasterAudio.FireCustomEvent("LJDialogue", sceneManager.getActor(SceneManager.Actor.lumberjack).transform.position);
+			break;
+		case sc2_howl:
+			MasterAudio.FireCustomEvent("Howl", sceneManager.getActor(SceneManager.Actor.wolf).transform.position);
 			break;
 		}
 		
