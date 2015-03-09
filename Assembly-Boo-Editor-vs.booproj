@@ -51,7 +51,7 @@
      <None Include="Assets\RAIN\Editor\Shaders\AspectSphereShader.shader" />
      <None Include="Assets\RAIN\Editor\Shaders\VisualSensorLineShader.shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
-     <None Include="Assets\Plugins\Credits\TestScene\Resources\credits.xml" />
+     <None Include="Assets\Standard Assets\Credits\TestScene\Resources\credits.xml" />
      <None Include="Assets\Movement\Mobility_Free_Unity_Info.txt" />
      <None Include="Assets\RAIN\Editor\Shaders\NavMeshContourShader.shader" />
      <None Include="Assets\RAIN\Editor\Shaders\WaypointShader.shader" />

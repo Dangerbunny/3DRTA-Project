@@ -46,15 +46,14 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Plugins\Credits\Scripts\Credits.cs" />
-     <Compile Include="Assets\Plugins\Credits\Scripts\Editor\CreditsEditor.cs" />
-     <Compile Include="Assets\Plugins\Credits\TestScene\CreditsExampleScript.cs" />
      <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
+     <Compile Include="Assets\Standard Assets\Credits\Scripts\Credits.cs" />
+     <Compile Include="Assets\Standard Assets\Credits\TestScene\CreditsExampleScript.cs" />
      <Compile Include="Assets\Standard Assets\Water (Basic)\Sources\Scripts\WaterSimple.cs" />
      <None Include="Assets\RAIN\Editor\Shaders\AspectSphereShader.shader" />
      <None Include="Assets\RAIN\Editor\Shaders\VisualSensorLineShader.shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
-     <None Include="Assets\Plugins\Credits\TestScene\Resources\credits.xml" />
+     <None Include="Assets\Standard Assets\Credits\TestScene\Resources\credits.xml" />
      <None Include="Assets\Movement\Mobility_Free_Unity_Info.txt" />
      <None Include="Assets\RAIN\Editor\Shaders\NavMeshContourShader.shader" />
      <None Include="Assets\RAIN\Editor\Shaders\WaypointShader.shader" />

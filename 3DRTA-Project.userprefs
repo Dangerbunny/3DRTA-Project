@@ -1,19 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Plugins\Credits\Scripts\Editor\CreditsEditor.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Credits\Scripts\Editor\CreditsEditor.cs">
     <Files>
-      <File FileName="Assets\Plugins\Credits\TestScene\Resources\credits.xml" Line="32" Column="65" />
+      <File FileName="Assets\Standard Assets\Credits\Scripts\Editor\CreditsEditor.cs" Line="1" Column="1" />
       <File FileName="Assets\_Scripts\DogController.cs" Line="1" Column="1" />
       <File FileName="Assets\AI\Actions\isDead.cs" Line="1" Column="1" />
       <File FileName="Assets\AI\Actions\endOfFight.cs" Line="1" Column="1" />
       <File FileName="Assets\_Scripts\WolfController.cs" Line="1" Column="1" />
       <File FileName="Assets\AI\Actions\CheckDistance.cs" Line="1" Column="1" />
       <File FileName="Assets\_Scripts\SoundTriggerArea.cs" Line="1" Column="1" />
-      <File FileName="Assets\AI\Actions\wolfDead.cs" Line="34" Column="5" />
-      <File FileName="Assets\_Scripts\AnimationEvent.cs" Line="72" Column="53" />
-      <File FileName="Assets\Plugins\Credits\TestScene\CreditsExampleScript.cs" Line="23" Column="30" />
-      <File FileName="Assets\AI\Actions\setControllable.cs" Line="20" Column="42" />
-      <File FileName="Assets\Plugins\Credits\Scripts\Editor\CreditsEditor.cs" Line="1" Column="1" />
+      <File FileName="Assets\AI\Actions\wolfDead.cs" Line="1" Column="1" />
+      <File FileName="Assets\_Scripts\AnimationEvent.cs" Line="1" Column="1" />
+      <File FileName="Assets\AI\Actions\setControllable.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

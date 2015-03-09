@@ -68,12 +68,13 @@
      <Compile Include="Assets\DarkTonic\MasterAudio\Editor\SoundGroupOrganizerInspector.cs" />
      <Compile Include="Assets\DarkTonic\MasterAudio\Editor\SoundGroupPropertyDrawer.cs" />
      <Compile Include="Assets\DarkTonic\MasterAudio\Editor\SoundGroupVariationInspector.cs" />
+     <Compile Include="Assets\Editor\CreditsEditor.cs" />
      <Compile Include="Assets\RAIN\Editor\ScriptTemplates\ActionTemplate_CS.cs" />
      <Compile Include="Assets\RAIN\Editor\ScriptTemplates\DecisionTemplate_CS.cs" />
      <None Include="Assets\RAIN\Editor\Shaders\AspectSphereShader.shader" />
      <None Include="Assets\RAIN\Editor\Shaders\VisualSensorLineShader.shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
-     <None Include="Assets\Plugins\Credits\TestScene\Resources\credits.xml" />
+     <None Include="Assets\Standard Assets\Credits\TestScene\Resources\credits.xml" />
      <None Include="Assets\Movement\Mobility_Free_Unity_Info.txt" />
      <None Include="Assets\RAIN\Editor\Shaders\NavMeshContourShader.shader" />
      <None Include="Assets\RAIN\Editor\Shaders\WaypointShader.shader" />
