@@ -19,7 +19,9 @@ public class AnimationEvent : MonoBehaviour {
 		sc1_wolfHowl2 = 7,
 		sc1_ljNotice = 8,
 		nextAndRetain = 9,
-		sc2_howl = 10;
+		sc2_howl = 10,
+		sc2_confrontWolf = 11,
+		sc2_nextScene = 12;
 
 
 	void fireEvent(int eventIndex){
@@ -39,7 +41,7 @@ public class AnimationEvent : MonoBehaviour {
 			GameObject dog = sceneManager.getActor(SceneManager.Actor.dog);
 			dog.GetComponent<DogController>().setControllable(true);
 			dog.GetComponentInParent<MouseLook>().enabled = true;
-			//dog.transform.parent.gameObject.GetComponentInChildren<MouseLook>().enabled = true;
+			dog.GetComponentInParent<CharacterMotor>().enabled = true;
 			GameObject.Find("FPS Camera").GetComponent<MouseLook>().enabled = true;
 			break;
 		case sc3_swoop:
@@ -78,6 +80,15 @@ public class AnimationEvent : MonoBehaviour {
 			break;
 		case sc2_howl:
 			MasterAudio.FireCustomEvent("Howl", sceneManager.getActor(SceneManager.Actor.wolf).transform.position);
+			break;
+		case sc2_confrontWolf:
+			sceneManager.nextCamera();
+			sceneManager.getActor(SceneManager.Actor.dog).GetComponent<DogController>().StartCoroutine("autoMove");
+			break;
+		case sc2_nextScene:
+			sceneManager.nextCamera();
+			AutoFade.LoadLevel (2, 2.5f, 1.0f, Color.black);
+			MasterAudio.FadePlaylistToVolume (0f, 2.5f);
 			break;
 		}
 		

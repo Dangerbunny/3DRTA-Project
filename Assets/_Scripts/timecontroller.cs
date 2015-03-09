@@ -26,7 +26,7 @@ public class timecontroller : MonoBehaviour
 		if (slowDown <= 1.0f)
 			slowDown = 1.01f;
 
-		if (Input.GetKeyDown (KeyCode.Space) || pause) {
+		if (Input.GetKeyDown (KeyCode.Tab) || pause) {
 			Time.timeScale = (Time.timeScale > 0) ? 0.0f : 1.0f;
 		} else {
 			// comment out this area to disable fast-forward/slow-mo

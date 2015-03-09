@@ -56,7 +56,6 @@ public class WolfController : MonoBehaviour {
 		case 2:
 			distance = Vector3.Distance (focus.transform.position, transform.position);
 			if(distance < 10f){
-//				print("Wolf: Talking to dog");
 				Vector3 dir = (focus.transform.position - transform.position).normalized;
 				dir.y = 0;
 				transform.forward = Vector3.Lerp(transform.forward, dir, rotationSpeed * Time.deltaTime);

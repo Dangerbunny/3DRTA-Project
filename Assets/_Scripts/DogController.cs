@@ -63,6 +63,7 @@ public class DogController : MonoBehaviour {
 			break;
 		case 2:
 			focus = sceneManager.getActor(SceneManager.Actor.wolf);
+			controller = GetComponentInParent<CharacterController>();
 			controllable = false;
 			break;	
 		}
@@ -77,30 +78,30 @@ public class DogController : MonoBehaviour {
 				Vector3 dir = (wpChain.currentPoint().position - transform.position).normalized;
 				dir.y = 0;
 				transform.forward = Vector3.Lerp(transform.forward, dir, rotationSpeed * Time.deltaTime);
-				controller.SimpleMove(transform.forward * speed * Time.deltaTime);
 			}
 			break;
 		case 2:
 			if(controllable){
-				float distance = Vector3.Distance (focus.transform.position, transform.position);
-				if(distance < 10f){
-					AutoFade.LoadLevel(2, 6f, 1.5f, Color.black);
-				}
 				int move = (int)Input.GetAxisRaw("Vertical");
-				bool jump = Input.GetButtonDown("Jump");
+				bool jump = Input.GetKeyDown(KeyCode.Space);
 				if(move != 0)
 					animator.SetInteger("Speed", 2);
 				else
 					animator.SetInteger("Speed", 0);
-				if(jump)
-					animator.SetTrigger("Jump");
-	//			else
-	//				animator.SetTrigger("Jumping");
+//				if(jump){
+//					animator.SetTrigger("Jump");
+//					Debug.Log("JUMP TRIGER");
+//				}
 			} else{
-				animator.SetInteger("Speed", 1);
-//				Vector3 targetDir = currentDest.position - transform.position;
-//				Quaternion rotation = new Quaternion(
-//				transform.Rotate(targetDir);
+				float distance = Vector3.Distance (focus.transform.position, transform.position);
+				if(distance < 10f){
+					Vector3 dir = (focus.transform.position - transform.position).normalized;
+					dir.y = 0;
+					transform.forward = Vector3.Lerp(transform.forward, dir, rotationSpeed * Time.deltaTime);
+				} else{
+//					print ("SETTING SPEED");
+					animator.SetInteger("Speed", 1);
+				}
 			}
 			break;
 		case 3:
@@ -109,7 +110,17 @@ public class DogController : MonoBehaviour {
 		}
 	}
 
+	public IEnumerator autoMove(){
+		float distance = Vector3.Distance (focus.transform.position, transform.position);
+		while (distance > 3.5) {
+			animator.SetInteger("Speed", 1);
+			controller.SimpleMove (transform.forward * speed * Time.deltaTime);
+			distance = Vector3.Distance (focus.transform.position, transform.position);
+			yield return new WaitForSeconds(0);
+		}
+		animator.SetInteger("Speed", 0);
 
+	}
 	public void setControllable(bool state){
 		controllable = state;
 	}
