@@ -93,15 +93,15 @@ public class WolfController : MonoBehaviour {
 				}
 				else if(distance < 40f){
 					if(focus.name != "lumberjack"){
-						if(focus.name == "elder"){
-//							print("Dog: Tells wolf that's not him");
-							sceneManager.enableActor(SceneManager.Actor.boy);
-							sceneManager.nextCamera();
-							focus = sceneManager.getActor(SceneManager.Actor.boy);
-						}
-						else if(focus.name == "boy"){
-//							print ("Dog: That's not him either");
-						}
+//						if(focus.name == "elder"){
+////							print("Dog: Tells wolf that's not him");
+//							sceneManager.enableActor(SceneManager.Actor.boy);
+//							sceneManager.nextCamera();
+//							focus = sceneManager.getActor(SceneManager.Actor.boy);
+//						}
+//						else if(focus.name == "boy"){
+////							print ("Dog: That's not him either");
+//						}
 						
 					} else{
 //						print ("Dog: Howls to get lumberjack's attention");

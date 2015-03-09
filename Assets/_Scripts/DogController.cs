@@ -78,6 +78,8 @@ public class DogController : MonoBehaviour {
 				Vector3 dir = (wpChain.currentPoint().position - transform.position).normalized;
 				dir.y = 0;
 				transform.forward = Vector3.Lerp(transform.forward, dir, rotationSpeed * Time.deltaTime);
+				controller.SimpleMove (transform.forward * speed * Time.deltaTime);
+				
 			}
 			break;
 		case 2:

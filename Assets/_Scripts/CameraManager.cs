@@ -25,6 +25,7 @@ public class CameraManager : MonoBehaviour {
 
 	public void nextCameraAndRetain(){
 		cameras[camIndex].GetComponent<Camera>().enabled = false;
+		cameras[camIndex].GetComponent<AudioListener>().enabled = false;
 		camIndex++;
 		print ("Advancing camera to: " + camIndex);
 		cameras[camIndex].SetActive(true);

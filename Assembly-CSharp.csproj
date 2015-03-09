@@ -53,6 +53,7 @@
      <Compile Include="Assets\AI\Actions\isControllable.cs" />
      <Compile Include="Assets\AI\Actions\isDead.cs" />
      <Compile Include="Assets\AI\Actions\locateLJ.cs" />
+     <Compile Include="Assets\AI\Actions\playElderSound.cs" />
      <Compile Include="Assets\AI\Actions\setControllable.cs" />
      <Compile Include="Assets\DarkTonic\MasterAudio\Scripts\Events\ButtonClicker.cs" />
      <Compile Include="Assets\DarkTonic\MasterAudio\Scripts\Events\EventSounds.cs" />

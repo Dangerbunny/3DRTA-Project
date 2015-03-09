@@ -16,6 +16,11 @@ public class TransitionArea : MonoBehaviour {
 			dog.GetComponent<Animator>().SetInteger("Speed", 0);
 //			Debug.Log("SETTING SPEED TO 0");
 //			GameObject.Find("FPS Camera").GetComponent<MouseLook>().enabled = true;
+		} else if (other.gameObject.name == "elder"){
+			SceneManager manager = GameObject.Find("Ultimate Overlord").GetComponent<SceneManager>();
+			manager.enableActor(SceneManager.Actor.boy);
+			manager.nextCamera();
+//			focus = sceneManager.getActor(SceneManager.Actor.boy);
 		}
 	}
 }

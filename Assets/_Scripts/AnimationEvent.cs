@@ -21,7 +21,9 @@ public class AnimationEvent : MonoBehaviour {
 		nextAndRetain = 9,
 		sc2_howl = 10,
 		sc2_confrontWolf = 11,
-		sc2_nextScene = 12;
+		sc2_nextScene = 12,
+		sc3_wdDialogue = 13,
+		sc3_ElderDialogue = 14;
 
 
 	void fireEvent(int eventIndex){
@@ -89,6 +91,13 @@ public class AnimationEvent : MonoBehaviour {
 			sceneManager.nextCamera();
 			AutoFade.LoadLevel (2, 2.5f, 1.0f, Color.black);
 			MasterAudio.FadePlaylistToVolume (0f, 2.5f);
+			break;
+		case sc3_wdDialogue:
+			MasterAudio.FireCustomEvent("DWD", Vector3.zero);
+			break;
+		case sc3_ElderDialogue:
+			MasterAudio.FireCustomEvent("ElderD", Vector3.zero);
+			sceneManager.nextCamera();
 			break;
 		}
 		
