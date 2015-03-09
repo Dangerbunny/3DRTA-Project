@@ -23,7 +23,9 @@ public class AnimationEvent : MonoBehaviour {
 		sc2_confrontWolf = 11,
 		sc2_nextScene = 12,
 		sc3_wdDialogue = 13,
-		sc3_ElderDialogue = 14;
+		sc3_ElderDialogueCamNext = 14,
+		sc3_ElderDialogue = 15,
+		sc3_wdDialogueCamNext = 16;
 
 
 	void fireEvent(int eventIndex){
@@ -95,9 +97,16 @@ public class AnimationEvent : MonoBehaviour {
 		case sc3_wdDialogue:
 			MasterAudio.FireCustomEvent("DWD", Vector3.zero);
 			break;
+		case sc3_wdDialogueCamNext:
+			MasterAudio.FireCustomEvent("DWD", Vector3.zero);
+			sceneManager.nextCameraAndRetain();
+			break;
+		case sc3_ElderDialogueCamNext:
+			MasterAudio.FireCustomEvent("ElderD", Vector3.zero);
+			sceneManager.nextCameraAndRetain();
+			break;
 		case sc3_ElderDialogue:
 			MasterAudio.FireCustomEvent("ElderD", Vector3.zero);
-			sceneManager.nextCamera();
 			break;
 		}
 		
