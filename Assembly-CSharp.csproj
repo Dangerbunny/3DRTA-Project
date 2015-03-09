@@ -106,6 +106,7 @@
      <Compile Include="Assets\_Scripts\PositionLerper.cs" />
      <Compile Include="Assets\_Scripts\SceneManager.cs" />
      <Compile Include="Assets\_Scripts\SceneTransition.cs" />
+     <Compile Include="Assets\_Scripts\SoundTriggerArea.cs" />
      <Compile Include="Assets\_Scripts\TorchController.cs" />
      <Compile Include="Assets\_Scripts\TransitionArea.cs" />
      <Compile Include="Assets\_Scripts\Waypoint.cs" />

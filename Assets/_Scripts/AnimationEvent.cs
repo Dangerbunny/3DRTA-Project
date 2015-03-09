@@ -69,6 +69,7 @@ public class AnimationEvent : MonoBehaviour {
 //			ljGO.GetComponent<FPSInputController>().enabled = true;
 			sceneManager.nextCamera();
 			sceneManager.getActor(SceneManager.Actor.wolf).GetComponent<WolfController>().setFocus(ljGO);
+			MasterAudio.TriggerNextPlaylistClip();
 			break;
 		case sc1_woflHowl1:
 			MasterAudio.TriggerNextPlaylistClip();
