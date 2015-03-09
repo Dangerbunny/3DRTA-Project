@@ -66,6 +66,9 @@ public class DogController : MonoBehaviour {
 			controller = GetComponentInParent<CharacterController>();
 			controllable = false;
 			break;	
+		case 3:
+			focus = sceneManager.getActor(SceneManager.Actor.wolf);
+			break;
 		}
 		
 		
@@ -107,7 +110,7 @@ public class DogController : MonoBehaviour {
 			}
 			break;
 		case 3:
-//			print ("Dog: Waiting for lumberjack");
+
 			break;
 		}
 	}
@@ -127,4 +130,8 @@ public class DogController : MonoBehaviour {
 		controllable = state;
 	}
 	
+	public GameObject getFocus ()
+	{
+		return focus;
+	}
 }

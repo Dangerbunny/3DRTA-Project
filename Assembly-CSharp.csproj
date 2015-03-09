@@ -58,6 +58,7 @@
      <Compile Include="Assets\AI\Actions\nextCameraAction.cs" />
      <Compile Include="Assets\AI\Actions\playElderSound.cs" />
      <Compile Include="Assets\AI\Actions\setControllable.cs" />
+     <Compile Include="Assets\AI\Actions\wolfDead.cs" />
      <Compile Include="Assets\DarkTonic\MasterAudio\Scripts\Events\ButtonClicker.cs" />
      <Compile Include="Assets\DarkTonic\MasterAudio\Scripts\Events\EventSounds.cs" />
      <Compile Include="Assets\DarkTonic\MasterAudio\Scripts\Events\FootstepSounds.cs" />
@@ -120,6 +121,7 @@
      <None Include="Assets\RAIN\Editor\Shaders\AspectSphereShader.shader" />
      <None Include="Assets\RAIN\Editor\Shaders\VisualSensorLineShader.shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
+     <None Include="Assets\Plugins\Credits\TestScene\Resources\credits.xml" />
      <None Include="Assets\Movement\Mobility_Free_Unity_Info.txt" />
      <None Include="Assets\RAIN\Editor\Shaders\NavMeshContourShader.shader" />
      <None Include="Assets\RAIN\Editor\Shaders\WaypointShader.shader" />

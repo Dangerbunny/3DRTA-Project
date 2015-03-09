@@ -127,7 +127,8 @@ public class WolfController : MonoBehaviour {
 
 	IEnumerator enrage(){
 
-		audio.Play();
+//		audio.Play();
+		MasterAudio.FireCustomEvent ("Enrage", Vector3.zero);
 
 		const int scaleFactor = 5;
 		Vector3 endScale = transform.localScale * 1.2f;

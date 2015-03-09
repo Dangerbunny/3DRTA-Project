@@ -7,6 +7,7 @@ public class SoundTriggerArea: MonoBehaviour {
 		//		print ("Collider: " + other);
 		if (other.gameObject.name == "lumberjack"){
 			MasterAudio.FireCustomEvent("Howl", Vector3.zero);
+			gameObject.SetActive(false);
 		}
 	}
 }

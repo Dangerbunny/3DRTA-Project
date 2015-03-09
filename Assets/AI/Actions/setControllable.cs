@@ -17,6 +17,7 @@ public class setControllable : RAINAction
 		LumberjackController ljc = ai.Body.GetComponent<LumberjackController> ();
 		ljc.setControllable (true);
 		ai.Body.GetComponent<Animator>().SetInteger("Speed1", 0);
+		ai.WorkingMemory.SetItem ("end", true);
 		SceneManager manager = GameObject.Find ("Ultimate Overlord").GetComponent<SceneManager>();
 		manager.nextCamera ();
         return ActionResult.SUCCESS;
