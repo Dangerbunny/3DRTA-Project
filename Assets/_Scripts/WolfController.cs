@@ -29,6 +29,8 @@ public class WolfController : MonoBehaviour {
 
 	CharacterController controller;
 
+	Vector3 originalSize;
+
 	#region Start()
 	// Use this for initialization
 	void Start () {
@@ -43,6 +45,7 @@ public class WolfController : MonoBehaviour {
 		case 3:
 			controller = GetComponent<CharacterController>();
 			focus = sceneManager.getActor(SceneManager.Actor.elder);
+			originalSize = transform.localScale;
 //			print ("Wolf: Talking with dog, waiting for lumberjack");
 			break;
 		}
@@ -150,6 +153,16 @@ public class WolfController : MonoBehaviour {
 		}
 	}
 
+	public IEnumerator deEnrage(){	
+		const int scaleFactor = 5;
+		Vector3 endScale = originalSize;
+
+		while (endScale.magnitude - transform.localScale.magnitude > 0.0001f) {
+			transform.localScale = Vector3.Lerp (transform.localScale, endScale, Time.deltaTime*scaleFactor);
+			yield return new WaitForSeconds(0);
+		}
+	}
+
 	public void enableNavAgent(){
 //		agent.enabled = true;
 	}
@@ -170,9 +183,12 @@ public class WolfController : MonoBehaviour {
 //		Debug.Log ("ATTACKING: " + focus.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (1).IsName ("Attacking"));
 		if (immuneTimer >= immunePeriod && focus.GetComponent<Animator>().GetCurrentAnimatorStateInfo(ljAttackLayerNum).IsName("Attacking")) {
 			anger++;
-			if(anger <= 3){
+			if(anger <= 2){
 				AddImpact(-transform.forward + new Vector3(0,0.3F,0), impactForce);
 				StartCoroutine(enrage());
+			} else if(anger == 3){
+				AddImpact(-transform.forward + new Vector3(0,0.3F,0), impactForce);
+				StartCoroutine(deEnrage());
 			}
 			if (--hits == 0) {
 					alive = false;

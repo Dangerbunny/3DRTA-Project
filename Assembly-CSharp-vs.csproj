@@ -48,8 +48,10 @@
   <ItemGroup>
      <Compile Include="Assets\AI\Actions\CheckDistance.cs" />
      <Compile Include="Assets\AI\Actions\MoveToEldersSide.cs" />
+     <Compile Include="Assets\AI\Actions\deEnrage.cs" />
      <Compile Include="Assets\AI\Actions\disableActor.cs" />
      <Compile Include="Assets\AI\Actions\disableIfElderDisabled.cs" />
+     <Compile Include="Assets\AI\Actions\endOfFight.cs" />
      <Compile Include="Assets\AI\Actions\isControllable.cs" />
      <Compile Include="Assets\AI\Actions\isDead.cs" />
      <Compile Include="Assets\AI\Actions\locateLJ.cs" />

@@ -9,10 +9,12 @@ public class isDead : RAINDecision
 {
     private int _lastRunning = 0;
 
+	timecontroller t;
+
     public override void Start(RAIN.Core.AI ai)
     {
         base.Start(ai);
-
+		t = GameObject.Find ("TimeManager").GetComponent<timecontroller> ();
         _lastRunning = 0;
     }
 
@@ -24,12 +26,14 @@ public class isDead : RAINDecision
 //		Debug.Log("Alive: " + wc.isAlive());
 		
 		if(!wc.isAlive()){
+			t.Normal();
 	        for (; _lastRunning < _children.Count; _lastRunning++)
 	        {
 	            tResult = _children[_lastRunning].Run(ai);
 	            if (tResult != ActionResult.SUCCESS)
 	                break;
 	        }
+
 		} else{
 //			Debug.Log("Health: " + wc.getHealth());
 			ai.WorkingMemory.SetItem("health", wc.getHealth());
