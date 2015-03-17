@@ -194,6 +194,7 @@ public class WolfController : MonoBehaviour {
 			if (--hits == 0) {
 					alive = false;
 					animator.SetBool ("Dead", true);
+					MasterAudio.FireCustomEvent("wolfdeath", Vector3.zero);	
 			}
 			immuneTimer = 0;
 		}
